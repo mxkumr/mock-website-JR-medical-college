@@ -13,111 +13,71 @@ export type NavItem =
   | { label: string; href: string }
   | { label: string; href: string; megaMenu: MegaMenuColumn[] };
 
-export const topBarLinks = [
-  { label: "Student Portal", href: "#" },
-  { label: "Faculty Login", href: "#" },
-  { label: "Alumni", href: "#" },
+export const utilityLinks = [
+  { label: "MBBS Course & Fee 2025-26", href: "#" },
+  { label: "Online Fee Payment", href: "#" },
+  { label: "MBBS Admission Instruction 2025-26", href: "#" },
 ];
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "About Us", href: "#about" },
+  { label: "Administration", href: "#" },
   {
-    label: "Academics",
-    href: "/academics",
+    label: "Departments",
+    href: "#departments",
     megaMenu: [
       {
-        title: "Programs",
+        title: "Clinical Departments",
         links: [
-          { label: "Undergraduate", href: "#", description: "Bachelor's degrees" },
-          { label: "Postgraduate", href: "#", description: "Master's & doctoral" },
-          { label: "Diploma Courses", href: "#", description: "Professional diplomas" },
-          { label: "Online Learning", href: "#", description: "Flexible study options" },
+          { label: "Microbiology", href: "#", description: "MBBS education & diagnostics" },
+          { label: "Pharmacology", href: "#", description: "Teaching, research & lab services" },
+          { label: "Bio Chemistry", href: "#", description: "Diagnostic, teaching & research" },
         ],
       },
       {
-        title: "Departments",
+        title: "Explore",
         links: [
-          { label: "Medicine", href: "#" },
-          { label: "Nursing", href: "#" },
-          { label: "Pharmacy", href: "#" },
-          { label: "Public Health", href: "#" },
-        ],
-      },
-      {
-        title: "Resources",
-        links: [
-          { label: "Academic Calendar", href: "#" },
-          { label: "Library", href: "#" },
-          { label: "Research Centers", href: "#" },
-          { label: "Student Handbook", href: "#" },
+          { label: "All Departments", href: "#departments" },
+          { label: "Faculty", href: "#" },
+          { label: "Research", href: "#" },
         ],
       },
     ],
   },
-  {
-    label: "Admissions",
-    href: "/admissions",
-    megaMenu: [
-      {
-        title: "Apply",
-        links: [
-          { label: "How to Apply", href: "#", description: "Step-by-step guide" },
-          { label: "Requirements", href: "#", description: "Eligibility criteria" },
-          { label: "Tuition & Fees", href: "#", description: "Cost breakdown" },
-          { label: "Scholarships", href: "#", description: "Financial aid options" },
-        ],
-      },
-      {
-        title: "Visit",
-        links: [
-          { label: "Campus Tours", href: "#" },
-          { label: "Open Days", href: "#" },
-          { label: "Virtual Tour", href: "#" },
-          { label: "Contact Admissions", href: "#" },
-        ],
-      },
-    ],
-  },
-  { label: "Research", href: "/research" },
-  { label: "Campus Life", href: "/campus" },
-  { label: "News", href: "/news" },
+  { label: "Facilities", href: "#" },
+  { label: "Approvals", href: "#" },
+  { label: "NMC MARB", href: "#" },
+  { label: "Foundation Courses", href: "#" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const footerColumns = [
   {
-    title: "Academics",
+    title: "Useful Links",
     links: [
-      { label: "Programs", href: "#" },
-      { label: "Departments", href: "#" },
-      { label: "Faculty", href: "#" },
-      { label: "Library", href: "#" },
+      { label: "About Us", href: "#about" },
+      { label: "Our Service", href: "#services" },
+      { label: "Departments", href: "#departments" },
+      { label: "Contact", href: "#contact" },
+    ],
+  },
+  {
+    title: "Our Office",
+    links: [
+      { label: "Administration", href: "#" },
+      { label: "Facilities", href: "#" },
+      { label: "Approvals", href: "#" },
+      { label: "NMC MARB", href: "#" },
     ],
   },
   {
     title: "Admissions",
     links: [
-      { label: "How to Apply", href: "#" },
-      { label: "Tuition & Fees", href: "#" },
-      { label: "Scholarships", href: "#" },
-      { label: "Visit Campus", href: "#" },
-    ],
-  },
-  {
-    title: "Campus",
-    links: [
-      { label: "Student Life", href: "#" },
-      { label: "Housing", href: "#" },
-      { label: "Events", href: "#" },
-      { label: "Gallery", href: "#" },
-    ],
-  },
-  {
-    title: "Connect",
-    links: [
-      { label: "Contact Us", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Alumni", href: "#" },
-      { label: "News & Media", href: "#" },
+      { label: "MBBS Course & Fee 2025-26", href: "#" },
+      { label: "Online Fee Payment", href: "#" },
+      { label: "MBBS Admission Instruction 2025-26", href: "#" },
+      { label: "Foundation Courses", href: "#" },
     ],
   },
 ];
