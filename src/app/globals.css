@@ -1700,8 +1700,9 @@ a.programs-more-link:hover {
 
 @media (min-width: 1024px) {
   .form-panel {
+    /* Overlap matches negative margin; subtitle sits just below the title */
     margin-top: -4.6875rem;
-    padding: 11.875rem var(--site-gutter) 6.25rem;
+    padding: calc(4.6875rem + 1.75rem) var(--site-gutter) 6.25rem;
   }
 }
 
