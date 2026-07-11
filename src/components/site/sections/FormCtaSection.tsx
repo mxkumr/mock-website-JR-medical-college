@@ -7,8 +7,8 @@ export function FormCtaSection() {
   const [primary, ...secondary] = formSection.buttons;
 
   return (
-    <FullBleed id="contact" boxed={false} className="form-section">
-      <div className="form-title-block">
+    <FullBleed id="contact" boxed={false} className="form-section section-form">
+      <div className="form-title-block site-container">
         <h1 className="form-title">{formSection.title}</h1>
       </div>
 

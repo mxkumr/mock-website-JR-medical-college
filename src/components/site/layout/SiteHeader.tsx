@@ -74,7 +74,7 @@ function SiteHeaderMobile() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-nav block py-2.5 text-white"
+              className="text-nav block py-2.5 transition-colors hover:text-accent-2"
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
@@ -88,22 +88,16 @@ function SiteHeaderMobile() {
 
 function SiteHeaderDesktop() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { isTransparent, isHidden, hasBackground } = useStickyHeader({
-    menuOpen,
-  });
-
-  const onHero = isTransparent && !menuOpen;
+  const { isHidden } = useStickyHeader({ transparent: false });
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-[10000] hidden h-[var(--header-height)] transition-[transform,background-color,box-shadow] duration-500 lg:block",
-        hasBackground ? "bg-[var(--sticky-header-bg)] shadow-md" : "bg-transparent",
+        "fixed inset-x-0 top-0 z-[10000] hidden h-[var(--header-height)] bg-accent-1 shadow-md transition-transform duration-500 lg:block",
         isHidden && "-translate-y-full",
       )}
     >
-      <div className="mx-auto flex h-full max-w-[var(--site-max-width)] items-center justify-between px-[30px]">
+      <div className="mx-auto flex h-full max-w-[var(--site-max-width)] items-center justify-between px-[var(--site-gutter-mobile)] lg:px-[var(--site-gutter)]">
         <Link href="/" className="relative z-10 flex shrink-0 items-center">
           <SiteLogo priority />
         </Link>
@@ -116,12 +110,8 @@ function SiteHeaderDesktop() {
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  "text-nav flex items-center gap-1 px-4 py-5 transition-colors",
-                  active
-                    ? "rounded-full bg-accent-2 text-accent-6"
-                    : onHero
-                      ? "text-white hover:text-accent-2"
-                      : "text-white/90 hover:text-accent-2",
+                  "text-nav flex items-center gap-1 px-4 py-5 transition-colors hover:text-accent-2",
+                  active && "font-bold",
                 )}
               >
                 {item.label}
@@ -131,7 +121,11 @@ function SiteHeaderDesktop() {
           })}
         </nav>
 
-        <button type="button" aria-label="Search" className="p-3 text-white">
+        <button
+          type="button"
+          aria-label="Search"
+          className="p-3 text-white transition-colors hover:text-accent-2"
+        >
           <Search className="h-5 w-5" />
         </button>
       </div>

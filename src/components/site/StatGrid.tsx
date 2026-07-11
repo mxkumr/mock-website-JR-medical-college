@@ -24,7 +24,7 @@ export function StatGrid({ stats, links, className }: StatGridProps) {
   return (
     <section
       className={cn(
-        "border-y border-accent-3/40 bg-accent-4 py-8 md:py-20",
+        "section-stats border-y border-accent-3/40 bg-accent-4 py-8 max-lg:snap-section-mobile",
         className,
       )}
     >
@@ -50,7 +50,7 @@ export function StatGrid({ stats, links, className }: StatGridProps) {
             })}
           </nav>
         )}
-        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 md:gap-6">
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 md:gap-6 lg:gap-8">
           {stats.map((stat, index) => (
             <StatCard key={stat.label} stat={stat} index={index} />
           ))}

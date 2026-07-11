@@ -6,7 +6,6 @@ export function StatsSection() {
     <StatGrid
       stats={statsSection.stats}
       links={statsSection.links}
-      className="snap-section-mobile"
     />
   );
 }

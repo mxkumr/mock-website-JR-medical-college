@@ -8,143 +8,63 @@ import {
   useScroll,
   useTransform,
   useReducedMotion,
-  useSpring,
-  useMotionValue,
 } from "framer-motion";
-import { ThemeLink } from "@/components/site/ThemeLink";
 import { heroSection, ASSETS } from "@/data/home-sections";
+import { SiteLogo } from "@/components/site/layout/SiteLogo";
 import { cn } from "@/lib/utils";
 
 function HeroGradientOverlay() {
   return <div className="hero-gradient-overlay absolute inset-0" aria-hidden />;
 }
 
-function HeroLetter({
-  children,
-  className,
-  parallax = 0.4,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  parallax?: number;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 120, damping: 20 });
-  const springY = useSpring(y, { stiffness: 120, damping: 20 });
+function HeroCtaLink({ className }: { className?: string }) {
+  const { cta } = heroSection;
 
   return (
-    <motion.span
-      ref={ref}
-      style={{ x: springX, y: springY }}
+    <Link
+      href={cta.href}
       className={cn(
-        "text-hero-letter inline-block select-none text-white",
+        "text-hero-link inline-flex w-fit items-center gap-[0.625em] no-underline transition-colors hover:text-accent-2",
         className,
       )}
-      onMouseMove={(e) => {
-        const el = ref.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const dx = (e.clientX - rect.left - rect.width / 2) * parallax * 0.05;
-        const dy = (e.clientY - rect.top - rect.height / 2) * parallax * 0.05;
-        x.set(dx);
-        y.set(dy);
-      }}
-      onMouseLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
     >
-      {children}
-    </motion.span>
+      {cta.label}
+      <ArrowRight className="h-[1.125em] w-[1.125em] shrink-0" aria-hidden />
+    </Link>
   );
 }
 
 function HeroTextStack({ className }: { className?: string }) {
-  const { mobileTitle, taglines, cta } = heroSection;
+  const { mobileTitle, taglines } = heroSection;
 
   return (
     <div className={cn("hero-text-stack", className)}>
-      <h1 className="text-hero-title whitespace-pre-line text-white">{mobileTitle}</h1>
+      <h1 className="text-hero-title whitespace-pre-line">{mobileTitle}</h1>
 
-      <h3 className="text-hero-subtitle whitespace-pre-line text-white">
-        {taglines.join("\n")}
-      </h3>
+      <h3 className="text-hero-subtitle whitespace-pre-line">{taglines.join("\n")}</h3>
 
-      <Link
-        href={cta.href}
-        className="text-hero-link inline-flex w-fit items-center gap-[0.625em] !text-white no-underline transition-colors hover:!text-accent-2"
-      >
-        {cta.label}
-        <ArrowRight className="h-[1.125em] w-[1.125em] shrink-0" aria-hidden />
-      </Link>
+      <HeroCtaLink />
     </div>
   );
 }
 
-function HeroCenterContent({ className }: { className?: string }) {
-  const { taglines, cta } = heroSection;
+function HeroDesktopStack() {
+  const { desktopTitle, taglines } = heroSection;
 
   return (
-    <div className={cn("relative z-[2]", className)}>
-      <h3 className="text-hero-subtitle whitespace-pre-line text-white">
-        {taglines.join("\n")}
-      </h3>
-      <ThemeLink
-        href={cta.href}
-        variant="hero"
-        className="text-hero-link mt-[var(--hero-link-gap)]"
-      >
-        {cta.label}
-      </ThemeLink>
+    <div className="hero-desktop-stack">
+      <SiteLogo size="hero" className="hero-desktop-logo" priority />
+
+      <h1 className="text-hero-title-desktop">{desktopTitle}</h1>
+
+      <h3 className="text-hero-subtitle whitespace-pre-line">{taglines.join("\n")}</h3>
+
+      <HeroCtaLink />
     </div>
   );
 }
 
-function HeroLetterGrid() {
-  const { left, right, bottom } = heroSection;
-
-  return (
-    <div className="relative mx-auto w-full max-w-[1100px] flex-1">
-      <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-0">
-        <div className="flex justify-end pr-[clamp(1rem,4vw,3rem)] pt-2">
-          <HeroLetter parallax={0.4}>{left}</HeroLetter>
-        </div>
-
-        <div className="relative z-[2] flex flex-col items-start justify-end px-2">
-          <HeroCenterContent />
-        </div>
-
-        <div className="flex justify-start pl-[clamp(0.5rem,2vw,1.5rem)] pt-1">
-          <HeroLetter parallax={0.7}>{right}</HeroLetter>
-        </div>
-      </div>
-
-      <div className="-mt-[clamp(3rem,10vw,5.5rem)] grid grid-cols-3 items-end">
-        {bottom.map((letter, index) => (
-          <div
-            key={letter || `slot-${index}`}
-            className={cn(
-              "flex",
-              index === 0 && "justify-start pl-2",
-              index === 1 && "justify-center",
-              index === 2 && "justify-end pr-2",
-            )}
-          >
-            {letter ? (
-              <HeroLetter parallax={[0.9, 0.75, 0.85][index] ?? 0.75}>
-                {letter}
-              </HeroLetter>
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/** Desktop hero — scattered letters + campus photo (tablet/mobile use HeroSectionMobile). */
+/** Desktop hero — institution name + taglines (tablet/mobile use HeroSectionMobile). */
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
@@ -168,7 +88,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative -mt-[var(--header-overlap)] hidden min-h-[clamp(600px,70vh,800px)] h-[70vh] overflow-hidden lg:block"
+      className="hero-section-desktop relative hidden overflow-hidden lg:block"
       aria-label="Hero"
     >
       <motion.div
@@ -186,14 +106,10 @@ export function HeroSection() {
 
       <motion.div
         style={{ y: contentY, opacity }}
-        className="relative mx-auto flex h-full max-w-[var(--site-max-width)] flex-col px-[clamp(1.25rem,3vw,1.875rem)] pt-[clamp(8rem,18vh,12.5rem)] pb-[clamp(6rem,14vh,10.625rem)]"
+        className="hero-section-inner mx-auto max-w-[var(--site-max-width)]"
       >
-        <HeroLetterGrid />
+        <HeroDesktopStack />
       </motion.div>
-
-      <h1 className="sr-only">
-        JR Medical College and Hospital — JRMCH
-      </h1>
     </section>
   );
 }
@@ -205,7 +121,7 @@ export function HeroSection() {
 export function HeroSectionMobile() {
   return (
     <section
-      className="relative min-h-[clamp(55vh,60svh,70vh)] overflow-hidden lg:hidden"
+      className="hero-section-mobile relative overflow-hidden lg:hidden"
       aria-label="Hero"
     >
       <div

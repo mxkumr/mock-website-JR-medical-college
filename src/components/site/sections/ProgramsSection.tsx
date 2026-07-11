@@ -11,8 +11,7 @@ export function ProgramsSection() {
       id="departments"
       snapOnMobile
       snapAlign="start"
-      className="max-lg:snap-section-mobile--fit bg-white pt-[var(--section-gap-before-programs)] pb-10 md:py-28"
-      innerClassName="px-5 lg:px-[30px]"
+      className="section-programs max-lg:snap-section-mobile--fit bg-white pt-[var(--section-gap-before-programs)] pb-10 max-lg:pb-10"
     >
       <header className="programs-header programs-panels-gap">
         <div className="programs-title-stack">
@@ -25,7 +24,7 @@ export function ProgramsSection() {
         <p className="programs-intro">{body}</p>
       </header>
 
-      <div className="-mx-5 md:mx-0">
+      <div className="-mx-[var(--site-gutter-mobile)] lg:mx-0">
         <ProgramPanels columns={columns} />
       </div>
 

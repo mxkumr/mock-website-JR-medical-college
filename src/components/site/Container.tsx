@@ -10,13 +10,7 @@ export function Container({
   fullWidth?: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        "mx-auto w-full px-[30px]",
-        !fullWidth && "max-w-[1260px]",
-        className,
-      )}
-    >
+    <div className={cn(!fullWidth && "site-container", fullWidth && "w-full", className)}>
       {children}
     </div>
   );

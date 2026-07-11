@@ -9,10 +9,9 @@ export function AboutSection() {
   return (
     <FullBleed
       id="about"
-      className="bg-white max-lg:pb-[var(--section-gap-after-about)] max-lg:pt-[var(--section-gap-sm)] lg:mt-[120px] lg:py-28"
-      innerClassName="px-5 lg:px-[30px]"
+      className="section-about bg-white max-lg:pb-[var(--section-gap-after-about)] max-lg:pt-[var(--section-gap-sm)]"
     >
-      <div className="mx-auto grid max-w-[885px] gap-5 lg:grid-cols-[83px_1fr] lg:items-start lg:gap-x-[50px] lg:gap-y-0">
+      <div className="site-content-narrow grid gap-5 lg:grid-cols-[83px_1fr] lg:items-start lg:gap-x-[50px] lg:gap-y-0">
         <div className="lg:pt-2.5 lg:text-right">
           <SiteLogo size="lg" />
         </div>

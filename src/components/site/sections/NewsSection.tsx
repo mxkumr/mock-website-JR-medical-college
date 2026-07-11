@@ -5,8 +5,8 @@ export function NewsSection() {
   const { title, cta, posts } = newsSection;
 
   return (
-    <FullBleed snapOnMobile boxed={false} className="news-section">
-      <div className="news-container">
+    <FullBleed snapOnMobile boxed={false} className="news-section section-news">
+      <div className="news-container site-container">
         <header className="news-header">
           <h2 className="news-section-title">{title}</h2>
           <ThemeLink href={cta.href} className="news-section-cta">

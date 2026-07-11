@@ -13,7 +13,7 @@ export function StudentLifeSection() {
       boxed={false}
       className="student-life-section max-lg:snap-section-mobile--fit"
     >
-      <div className="student-life-container">
+      <div className="student-life-container site-container">
         <div className="student-life-header">
           <div className="student-life-title-wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}

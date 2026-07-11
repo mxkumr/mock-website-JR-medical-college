@@ -11,25 +11,30 @@ export function SiteLogo({
   className?: string;
   imageClassName?: string;
   priority?: boolean;
-  size?: "sm" | "lg";
+  size?: "sm" | "lg" | "hero";
 }) {
-  const isLarge = size === "lg";
+  const isHero = size === "hero";
+  const isLarge = size === "lg" || isHero;
 
   return (
     <span
       className={cn(
         "inline-flex shrink-0 items-center justify-center rounded-full bg-white",
-        isLarge ? "p-1.5" : "p-1",
+        isHero ? "p-2" : isLarge ? "p-1.5" : "p-1",
         className,
       )}
     >
       <Image
         src={ASSETS.headerLogo}
         alt="JR Medical College and Hospital"
-        width={isLarge ? 83 : 48}
-        height={isLarge ? 83 : 48}
+        width={isHero ? 120 : isLarge ? 83 : 48}
+        height={isHero ? 120 : isLarge ? 83 : 48}
         className={cn(
-          isLarge ? "h-[75px] w-[75px]" : "h-10 w-10",
+          isHero
+            ? "h-[clamp(5.5rem,9vw,7.5rem)] w-[clamp(5.5rem,9vw,7.5rem)]"
+            : isLarge
+              ? "h-[75px] w-[75px]"
+              : "h-10 w-10",
           "object-contain",
           imageClassName,
         )}

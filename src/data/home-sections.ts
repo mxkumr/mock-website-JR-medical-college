@@ -19,9 +19,7 @@ export const ASSETS = {
 
 export const heroSection = {
   mobileTitle: "JR\nMCH",
-  left: "J",
-  right: "RM",
-  bottom: ["C", "", "H"] as const,
+  desktopTitle: "JR Medical College & Hospital",
   taglines: [
     "Arise with purpose.",
     "Aspire to heal.",
