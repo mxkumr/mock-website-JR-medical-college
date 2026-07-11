@@ -1,18 +1,23 @@
 @import "tailwindcss";
 
-/* Estudiar theme tokens — from samples/elementor-styles-fallback.css */
+/* Hybrid theme — JRMCH primary (#33247f) + Estudiar gold accents */
 :root {
-  --accent-1: #36348e;
+  --accent-1: #33247f;
   --accent-2: #ffc53a;
-  --accent-3: #cdd4fb;
+  --accent-3: #ccc8f5;
   --accent-4: #fafafa;
   --accent-5: #ffffff;
   --accent-6: #292929;
-  --accent-7: #b7d8ef;
+  --accent-7: #b5b0e8;
   --accent-8: #545454;
-  --sticky-header-bg: #36348e;
-  --link: #36348e;
+  --accent-urgent: #ed2025;
+  --sticky-header-bg: #33247f;
+  --link: #33247f;
   --link-hover: #ffc53a;
+  --hero-cta: #8ec5ff;
+  --hero-overlay-dark: color-mix(in srgb, var(--accent-1) 87%, transparent);
+  --hero-overlay-mid: color-mix(in srgb, var(--accent-1) 52%, transparent);
+  --hero-overlay-light: color-mix(in srgb, var(--accent-1) 22%, transparent);
   --site-max-width: 1260px;
   --header-height: 85px;
   --header-overlap: 86px;
@@ -25,6 +30,20 @@
   --text-h4: 26px;
   --text-h5: 24px;
   --text-h6: 18px;
+  /* Hero fluid type — scales smoothly across viewports */
+  --hero-title-size: 4.25rem; /* 68px */
+  --hero-title-tracking: clamp(-0.08em, -0.04em, -0.02em);
+  --hero-subtitle-size: 1.375rem; /* 22px */
+  --hero-subtitle-leading: 1.35;
+  --hero-link-size: 1.125rem; /* 18px */
+  --hero-subtitle-gap: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+  --hero-link-gap: clamp(0.5rem, 0.8vw + 0.25rem, 0.875rem);
+  --hero-content-pt: clamp(calc(var(--header-height) + 1.25rem), 12vh, calc(var(--header-height) + 4rem));
+  --hero-content-px: clamp(1.25rem, 3vw, 1.875rem);
+  --hero-subtitle-max-w: clamp(16rem, 55vw, 32rem);
+  --section-gap-sm: clamp(1.25rem, 3.5vh, 2rem);
+  --section-gap-md: clamp(1.75rem, 5vh, 2.75rem);
+  --section-gap-after-about: clamp(3.5rem, 12vh, 5.5rem);
 }
 
 @theme inline {
@@ -36,12 +55,16 @@
   --color-accent-6: var(--accent-6);
   --color-accent-7: var(--accent-7);
   --color-accent-8: var(--accent-8);
+  --color-accent-urgent: var(--accent-urgent);
+  --color-hero-cta: var(--hero-cta);
   --font-sans: var(--font-inter);
   --font-display: var(--font-work-sans);
 }
 
 @media (max-width: 1024px) {
   :root {
+    --header-height: 80px;
+    --header-overlap: 0px;
     --text-accent-title: 150px;
     --text-accent-title-tracking: -10px;
   }
@@ -50,7 +73,7 @@
 @media (max-width: 767px) {
   :root {
     --text-accent-title: 80px;
-    --text-accent-title-tracking: -5px;
+    --text-accent-title-tracking: -0.05em;
     --text-h1: 34px;
     --text-h2: 30px;
     --text-h3: 26px;
@@ -63,11 +86,61 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile — section snap lives in #page-scroll, not the document (hero stays free) */
+@media (max-width: 1023px) {
+  body {
+    overflow: hidden;
+    height: 100dvh;
+  }
+
+  #page-scroll {
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: var(--header-height);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .snap-section-mobile {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .snap-section-mobile.snap-section-mobile--start {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .snap-section-mobile.snap-section-mobile--fit {
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  #page-scroll {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  #page-scroll {
+    scroll-snap-type: none;
+  }
+}
+
 body {
   background: var(--accent-5);
   color: var(--accent-6);
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 18px;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -80,18 +153,67 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-work-sans), system-ui, sans-serif;
+  font-weight: 700;
 }
 
 .font-display {
   font-family: var(--font-work-sans), system-ui, sans-serif;
 }
 
-.text-h1 { font-size: var(--text-h1); line-height: 1.1; font-weight: 800; }
-.text-h2 { font-size: var(--text-h2); line-height: 1.2; font-weight: 700; }
-.text-h3 { font-size: var(--text-h3); line-height: 1.2; font-weight: 700; }
-.text-h4 { font-size: var(--text-h4); line-height: 1.2; font-weight: 800; }
-.text-h5 { font-size: var(--text-h5); line-height: 1.2; font-weight: 600; }
-.text-h6 { font-size: var(--text-h6); line-height: 1.3; font-weight: 500; }
+.font-sans {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Estudiar / elementor.vamtam.com — Inter body, Work Sans headings */
+.text-body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--accent-6);
+}
+
+.text-body-muted {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--accent-8);
+}
+
+@media (min-width: 768px) {
+  .text-body,
+  .text-body-muted {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+
+.text-nav {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Hero — accent-1 left (matches top bar) fading transparent right (photo) */
+.hero-gradient-overlay {
+  background: linear-gradient(
+    to right,
+    var(--hero-overlay-dark) 0%,
+    var(--hero-overlay-dark) 16%,
+    var(--hero-overlay-mid) 44%,
+    var(--hero-overlay-light) 66%,
+    transparent 86%
+  );
+}
+
+.text-h1 { font-size: var(--text-h1); line-height: 1.1; font-weight: 800; color: var(--accent-6); }
+.text-h2 { font-size: var(--text-h2); line-height: 1.2; font-weight: 700; color: var(--accent-6); }
+.text-h3 { font-size: var(--text-h3); line-height: 1.2; font-weight: 700; color: var(--accent-6); }
+.text-h4 { font-size: var(--text-h4); line-height: 1.2; font-weight: 800; color: var(--accent-6); }
+.text-h5 { font-size: var(--text-h5); line-height: 1.2; font-weight: 600; color: var(--accent-6); }
+.text-h6 { font-size: var(--text-h6); line-height: 1.3; font-weight: 500; color: var(--accent-6); }
 
 /* Estudiar Accent Title — 200px Work Sans uppercase (section headings) */
 .text-accent-title {
@@ -113,12 +235,65 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+/* Mobile / tablet stacked hero title — fluid across viewports */
+.text-hero-title {
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  font-size: var(--hero-title-size);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: var(--hero-title-tracking);
+  text-transform: uppercase;
+}
+
+.text-hero-subtitle {
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  font-size: var(--hero-subtitle-size);
+  font-weight: 700;
+  line-height: var(--hero-subtitle-leading);
+  max-width: var(--hero-subtitle-max-w);
+  color: #ffffff;
+}
+
+.text-hero-link {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: var(--hero-link-size);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.hero-text-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: var(--hero-content-pt);
+  padding-left: var(--hero-content-px);
+  padding-right: var(--hero-content-px);
+  padding-bottom: clamp(2.5rem, 6vh, 3.5rem);
+}
+
+.hero-text-stack > .text-hero-subtitle {
+  margin-top: var(--hero-subtitle-gap);
+}
+
+.hero-text-stack > .text-hero-link {
+  margin-top: var(--hero-link-gap);
+}
+
 a {
+  font-family: var(--font-inter), system-ui, sans-serif;
   color: var(--link);
 }
 
 a:hover {
   color: var(--link-hover);
+}
+
+a.text-hero-cta {
+  color: var(--hero-cta);
+}
+
+a.text-hero-cta:hover {
+  color: var(--accent-2);
 }
 
 ::selection {

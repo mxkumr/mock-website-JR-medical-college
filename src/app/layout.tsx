@@ -5,14 +5,14 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -32,7 +32,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${workSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${inter.className} min-h-full flex flex-col`}>
+        {children}
+      </body>
     </html>
   );
 }

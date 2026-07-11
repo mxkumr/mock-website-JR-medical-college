@@ -23,21 +23,23 @@ export function HomePage() {
   return (
     <>
       <SiteHeader />
-      <HeroSection />
-      <HeroSectionMobile />
-      <main>
-        <AboutSection />
-        <CampusSection />
-        <StatsSection />
-        <ProgramsSection />
-        <ApplySection />
-        <LeadersSection />
-        <StudentLifeSection />
-        <NewsSection />
-        <ExperienceSection />
-        <FormCtaSection />
-      </main>
-      <SiteFooter />
+      <div id="page-scroll">
+        <HeroSection />
+        <HeroSectionMobile />
+        <main>
+          <AboutSection />
+          <CampusSection />
+          <StatsSection />
+          <ProgramsSection />
+          <ApplySection />
+          <LeadersSection />
+          <StudentLifeSection />
+          <NewsSection />
+          <ExperienceSection />
+          <FormCtaSection />
+        </main>
+        <SiteFooter />
+      </div>
       <ScrollToTop />
     </>
   );

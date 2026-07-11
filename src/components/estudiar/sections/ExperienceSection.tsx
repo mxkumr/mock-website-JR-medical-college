@@ -3,7 +3,7 @@ import { experienceSection } from "@/data/estudiar-home";
 
 export function ExperienceSection() {
   return (
-    <FullBleed className="bg-white py-20 md:py-28">
+    <FullBleed snapOnMobile className="bg-white py-10 md:py-28">
       <SectionHeader
         title={experienceSection.title}
         subtitle={experienceSection.body}

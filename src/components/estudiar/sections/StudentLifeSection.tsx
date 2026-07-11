@@ -10,7 +10,8 @@ export function StudentLifeSection() {
   return (
     <FullBleed
       id="services"
-      className="relative overflow-hidden bg-white py-20 md:py-28"
+      snapOnMobile
+      className="relative overflow-hidden bg-white py-10 md:py-28"
     >
       <div className="relative z-10 overflow-hidden">
         <AccentTitle
@@ -21,15 +22,15 @@ export function StudentLifeSection() {
           ]}
           inline
         />
-        <h4 className="mt-6 max-w-lg font-display text-h4 font-extrabold text-accent-6">
+        <h4 className="mt-4 max-w-lg font-display text-h4 font-extrabold text-accent-6 md:mt-6">
           {studentLifeSection.quote}
         </h4>
-        <ThemeLink href={studentLifeSection.cta.href} className="mt-6">
+        <ThemeLink href={studentLifeSection.cta.href} className="mt-4 md:mt-6">
           {studentLifeSection.cta.label}
         </ThemeLink>
       </div>
 
-      <ImageGrid images={studentLifeSection.images} className="relative mt-14" />
+      <ImageGrid images={studentLifeSection.images} className="relative mt-8 md:mt-14" />
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

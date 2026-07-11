@@ -49,9 +49,7 @@ export function SectionHeader({
         </h2>
       )}
       {subtitle && (
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-accent-8">
-          {subtitle}
-        </p>
+        <p className="text-body mt-4 max-w-2xl">{subtitle}</p>
       )}
       {cta && (
         <ThemeLink href={cta.href} className="mt-6">

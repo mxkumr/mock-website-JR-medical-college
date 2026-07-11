@@ -7,7 +7,7 @@ import { leadersSection } from "@/data/estudiar-home";
 
 export function LeadersSection() {
   return (
-    <FullBleed className="bg-white py-20 md:py-28">
+    <FullBleed snapOnMobile className="bg-white py-10 md:py-28">
       <SectionHeader
         accentParts={[leadersSection.titleLeft, leadersSection.titleRight]}
         accentInline
@@ -15,12 +15,12 @@ export function LeadersSection() {
         cta={leadersSection.financialAid}
       />
 
-      <div className="mt-14 grid gap-12 lg:grid-cols-2">
+      <div className="mt-8 grid gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-12">
         <div>
           <h3 className="font-display text-h3 font-bold text-accent-6">
             {leadersSection.tuitionTitle}
           </h3>
-          <p className="mt-4 text-accent-8">{leadersSection.tuitionBody}</p>
+          <p className="text-body mt-4">{leadersSection.tuitionBody}</p>
         </div>
         <div className="grid gap-8 sm:grid-cols-2">
           {leadersSection.priceLists.map((list) => (

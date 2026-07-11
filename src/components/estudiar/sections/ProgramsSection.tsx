@@ -3,14 +3,14 @@ import { programsSection } from "@/data/estudiar-home";
 
 export function ProgramsSection() {
   return (
-    <FullBleed id="departments" className="bg-white py-20 md:py-28">
+    <FullBleed id="departments" snapOnMobile className="bg-white py-10 md:py-28">
       <SectionHeader
         accentParts={[programsSection.titleLeft, programsSection.titleRight]}
         accentInline
         title={programsSection.subtitle}
-        className="mb-14 overflow-hidden"
+        className="mb-8 overflow-hidden md:mb-14"
       />
-      <div className="grid gap-10 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3 md:gap-10">
         {programsSection.columns.map((col) => (
           <ProgramColumn
             key={col.title}
@@ -20,7 +20,7 @@ export function ProgramsSection() {
           />
         ))}
       </div>
-      <ThemeLink href={programsSection.cta.href} className="mt-12">
+      <ThemeLink href={programsSection.cta.href} className="mt-8 md:mt-12">
         {programsSection.cta.label}
       </ThemeLink>
     </FullBleed>

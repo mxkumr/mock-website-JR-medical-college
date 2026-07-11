@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/estudiar/Container";
-import { ASSETS } from "@/data/estudiar-home";
+import { SiteLogo } from "@/components/estudiar/layout/SiteLogo";
 import { contactInfo, siteInfo } from "@/data/home-content";
 
 const footerMenus = [
@@ -41,13 +40,7 @@ export function SiteFooter() {
       <Container className="relative py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Image
-              src={ASSETS.footerLogo}
-              alt={siteInfo.name}
-              width={180}
-              height={48}
-              className="h-10 w-auto brightness-0 invert"
-            />
+            <SiteLogo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed">
               {siteInfo.footerTagline}
             </p>

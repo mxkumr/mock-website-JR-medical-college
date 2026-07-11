@@ -21,8 +21,10 @@ export function ThemeLink({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2 text-lg font-normal capitalize underline decoration-1 underline-offset-4 transition-colors",
-        isHero && "text-white decoration-white/70 hover:text-accent-2 hover:decoration-accent-2",
+        "group inline-flex items-center gap-2 font-sans text-lg capitalize underline decoration-1 underline-offset-4 transition-colors",
+        isHero ? "font-medium" : "font-normal",
+        isHero &&
+          "text-white no-underline decoration-transparent hover:text-accent-2 hover:decoration-transparent",
         !isHero &&
           light &&
           "text-white decoration-white/80 hover:text-accent-2 hover:decoration-accent-2",

@@ -20,7 +20,7 @@ export function ProcessSteps({
             <h4 className="font-display text-h4 font-extrabold text-accent-6">
               {step.title}
             </h4>
-            <p className="mt-2 text-accent-8">{step.body}</p>
+            <p className="text-body-muted mt-2">{step.body}</p>
           </div>
         </li>
       ))}

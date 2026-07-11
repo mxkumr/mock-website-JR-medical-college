@@ -3,10 +3,11 @@
 const U = "/uploads";
 
 export const ASSETS = {
-  headerLogo: `${U}/2020/02/logo.svg`,
+  headerLogo: "/images/jrmedical.png",
   heroVideo: `${U}/2021/02/Intro-Short-Video-Edinboro-University.mp4`,
-  heroPoster: `${U}/2021/02/video-cover-1.jpg`,
-  mobileHeroCover: `${U}/2020/12/home2-video-cover.jpg`,
+  heroPoster: "/images/hero.png",
+  mobileHeroCover: "/images/hero.png",
+  heroBackground: "/images/hero.png",
   heroEllipse: `${U}/2020/12/Ellipse-21.svg`,
   aboutImage: `${U}/2020/12/iStock-597958786.jpg`,
   applyImage: `${U}/2020/12/iStock-1147303275.jpg`,
@@ -17,23 +18,24 @@ export const ASSETS = {
   ],
   shapePurple: `${U}/2020/12/shape-purple.svg`,
   shape: `${U}/2020/11/shape.svg`,
-  footerLogo: `${U}/2020/11/logo-footer-home2.svg`,
+  footerLogo: "/images/jrmedical.png",
 } as const;
 
 export const heroSection = {
-  left: "L",
-  right: "ER",
-  bottom: ["E", "A", "D"] as const,
+  mobileTitle: "JR\nMCH",
+  left: "J",
+  right: "RM",
+  bottom: ["C", "", "H"] as const,
   taglines: [
-    "Excellence in care.",
-    "Dedicated healers.",
-    "Investing in lives.",
+    "Arise with purpose.",
+    "Aspire to heal.",
+    "The best for everyone.",
   ],
   cta: { label: "View Our Programs", href: "#departments" },
 };
 
 export const aboutSection = {
-  title: "About JR Medical College and Hospital",
+  title: "About JR Medical\nCollege",
   body: "JR Medical College & Hospital was started with the aim of providing excellent medical services come under the ambit of Bharath Institute Of Higher Education & Research. The best of the best for everyone.",
   cta: { label: "University Overview", href: "#about" },
 };

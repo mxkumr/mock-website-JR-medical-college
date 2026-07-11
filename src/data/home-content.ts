@@ -36,9 +36,9 @@ export const heroTypography = {
   bottom: ["E", "A", "L"] as const,
   circle: {
     lines: [
-      "Excellence in care.",
-      "Dedicated healers.",
-      "Investing in lives.",
+      "Arise with purpose.",
+      "Aspire to heal.",
+      "The best for everyone.",
     ],
     cta: { label: "View Our Programs", href: "#departments" },
   },

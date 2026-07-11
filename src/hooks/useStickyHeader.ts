@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { getScrollTop, onScrollRoot } from "@/lib/scroll-root";
 
 const TOP_OFFSET = 300;
 const SCROLL_DELTA = 80;
@@ -33,7 +34,7 @@ export function useStickyHeader(options?: {
     const isDesktop = () => window.matchMedia("(min-width: 1025px)").matches;
 
     const initialCheck = () => {
-      if (window.scrollY >= TOP_OFFSET) {
+      if (getScrollTop() >= TOP_OFFSET) {
         applyState("hidden");
       }
     };
@@ -41,18 +42,18 @@ export function useStickyHeader(options?: {
 
     const onScroll = () => {
       if (!isDesktop()) {
-        applyState(window.scrollY > 60 ? "visible" : "transparent");
+        applyState(getScrollTop() > 60 ? "visible" : "transparent");
         return;
       }
 
       if (scrollTimer.current) clearTimeout(scrollTimer.current);
       scrollTimer.current = setTimeout(() => {
-        lastScrollYPause.current = window.scrollY;
+        lastScrollYPause.current = getScrollTop();
       }, 500);
 
       if (debounceTimer.current) clearTimeout(debounceTimer.current);
       debounceTimer.current = setTimeout(() => {
-        const y = window.scrollY;
+        const y = getScrollTop();
         const direction: "up" | "down" = y > prevY.current ? "down" : "up";
 
         if (menuOpen) {
@@ -92,9 +93,9 @@ export function useStickyHeader(options?: {
       }, 50);
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const removeScroll = onScrollRoot(onScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      removeScroll();
       if (scrollTimer.current) clearTimeout(scrollTimer.current);
       if (debounceTimer.current) clearTimeout(debounceTimer.current);
     };

@@ -1,29 +1,32 @@
-import { FullBleed, SectionHeader } from "@/components/estudiar";
+import { FullBleed } from "@/components/estudiar";
+import { ThemeLink } from "@/components/estudiar/ThemeLink";
+import { SiteLogo } from "@/components/estudiar/layout/SiteLogo";
 import { aboutSection } from "@/data/estudiar-home";
 
 export function AboutSection() {
+  const { title, body, cta } = aboutSection;
+
   return (
     <FullBleed
       id="about"
-      className="bg-white pt-32 pb-20 md:mt-[120px] md:pt-0 md:pb-28"
+      className="bg-white max-lg:pb-[var(--section-gap-after-about)] max-lg:pt-[var(--section-gap-sm)] lg:mt-[120px] lg:py-28"
+      innerClassName="px-5 lg:px-[30px]"
     >
-      <div className="grid items-start gap-8 md:grid-cols-[minmax(0,15%)_minmax(0,85%)] md:gap-0">
-        <div className="hidden justify-end pr-12 md:flex">
-          <div
-            className="flex h-[83px] w-[83px] items-center justify-center rounded-full bg-accent-4"
-            aria-hidden
-          >
-            <span className="font-display text-2xl font-extrabold text-accent-6">
-              JR
-            </span>
-          </div>
+      <div className="mx-auto grid max-w-[885px] gap-5 lg:grid-cols-[83px_1fr] lg:items-start lg:gap-x-[50px] lg:gap-y-0">
+        <div className="lg:pt-2.5 lg:text-right">
+          <SiteLogo size="lg" />
         </div>
-        <div className="max-w-[885px]">
-          <SectionHeader
-            title={aboutSection.title}
-            subtitle={aboutSection.body}
-            cta={aboutSection.cta}
-          />
+
+        <div className="flex flex-col gap-[var(--section-gap-sm)] lg:mt-0 lg:gap-[30px]">
+          <h2 className="text-h2 max-w-[80%] whitespace-pre-line text-accent-6">
+            {title}
+          </h2>
+
+          <p className="text-body max-w-none font-semibold">{body}</p>
+
+          <ThemeLink href={cta.href} className="w-fit font-sans text-lg font-medium">
+            {cta.label}
+          </ThemeLink>
         </div>
       </div>
     </FullBleed>

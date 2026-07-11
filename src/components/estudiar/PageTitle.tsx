@@ -36,8 +36,8 @@ export function PageTitle({
       {description && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-lg leading-relaxed",
-            light ? "text-white/80" : "text-accent-8",
+            "text-body mt-4 max-w-2xl",
+            light && "text-white/80",
           )}
         >
           {description}

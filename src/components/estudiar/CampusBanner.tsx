@@ -17,23 +17,20 @@ export function CampusBanner({
   cta,
 }: CampusBannerProps) {
   return (
-    <section className="mt-28 overflow-hidden bg-white md:mt-[280px]">
-      <div className="mx-auto max-w-[var(--site-max-width)]">
+    <section className="snap-section-mobile snap-section-mobile--start snap-section-mobile--fit overflow-x-hidden bg-white md:mt-[280px]">
+      <div className="mx-auto w-full max-w-[var(--site-max-width)]">
         <div className="relative md:min-h-[520px]">
-          <div className="relative z-10 w-full bg-accent-2 pb-24 pl-[clamp(1.25rem,6vw,6.25rem)] pr-8 md:w-[72%] md:pb-[300px]">
-            <h2 className="text-accent-title -ml-2.5 -mt-[85px] text-accent-6">
-              {titleLines[0]}
-              <br />
-              {titleLines[1]}
-            </h2>
-            <p className="mt-4 max-w-md text-lg font-medium leading-relaxed text-accent-8">
-              {body}
-            </p>
-            <ThemeLink href={cta.href} className="mt-6">
+          <h2 className="relative z-20 flex flex-col items-start justify-start text-accent-title -ml-2.5 pl-[clamp(1.25rem,6vw,6.25rem)] text-accent-6">
+            <span>{titleLines[0]}</span>
+            <span>{titleLines[1]}</span>
+          </h2>
+          <div className="relative z-10 -mt-[calc(var(--text-accent-title)*0.8)] w-full bg-accent-2 pb-6 pl-[clamp(1.25rem,6vw,6.25rem)] pr-8 pt-[calc(var(--text-accent-title)*0.8)] md:w-[72%] md:pb-[300px]">
+            <p className="text-body max-w-md">{body}</p>
+            <ThemeLink href={cta.href} className="mt-4 md:mt-6">
               {cta.label}
             </ThemeLink>
           </div>
-          <div className="relative aspect-[4/5] w-full md:absolute md:right-0 md:top-0 md:aspect-auto md:h-full md:w-[50%]">
+          <div className="relative aspect-[16/10] max-h-[min(34dvh,260px)] w-full md:absolute md:right-0 md:top-0 md:aspect-auto md:h-full md:max-h-none md:w-[50%]">
             <Image
               src={image}
               alt={imageAlt}

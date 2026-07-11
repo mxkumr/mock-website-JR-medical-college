@@ -3,21 +3,22 @@
 import { useEffect, useState } from "react";
 import { ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getScrollTop, onScrollRoot, scrollToTop } from "@/lib/scroll-root";
 
 export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const onScroll = () => setVisible(getScrollTop() > 400);
+    onScroll();
+    return onScrollRoot(onScroll, { passive: true });
   }, []);
 
   return (
     <button
       type="button"
       aria-label="Scroll to top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => scrollToTop("smooth")}
       className={cn(
         "fixed bottom-8 right-8 z-[9999] flex h-12 w-12 items-center justify-center",
         "bg-accent-1 text-white transition-all duration-300",
