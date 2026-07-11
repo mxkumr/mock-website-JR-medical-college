@@ -21,25 +21,24 @@ function HeroCtaLink({ className }: { className?: string }) {
   const { cta } = heroSection;
 
   return (
-    <Link
-      href={cta.href}
-      className={cn(
-        "text-hero-link inline-flex w-fit items-center gap-[0.625em] no-underline transition-colors hover:text-accent-2",
-        className,
-      )}
-    >
-      {cta.label}
-      <ArrowRight className="h-[1.125em] w-[1.125em] shrink-0" aria-hidden />
-    </Link>
+    <div className={cn("hero-cta-wrap", className)}>
+      <Link
+        href={cta.href}
+        className="text-hero-link inline-flex w-fit items-center gap-[0.625em] no-underline transition-colors hover:text-accent-2"
+      >
+        {cta.label}
+        <ArrowRight className="h-[1.125em] w-[1.125em] shrink-0" aria-hidden />
+      </Link>
+    </div>
   );
 }
 
 function HeroTextStack({ className }: { className?: string }) {
-  const { mobileTitle, taglines } = heroSection;
+  const { title, taglines } = heroSection;
 
   return (
     <div className={cn("hero-text-stack", className)}>
-      <h1 className="text-hero-title whitespace-pre-line">{mobileTitle}</h1>
+      <h1 className="text-hero-title-institution">{title}</h1>
 
       <h3 className="text-hero-subtitle whitespace-pre-line">{taglines.join("\n")}</h3>
 
@@ -49,13 +48,13 @@ function HeroTextStack({ className }: { className?: string }) {
 }
 
 function HeroDesktopStack() {
-  const { desktopTitle, taglines } = heroSection;
+  const { title, taglines } = heroSection;
 
   return (
     <div className="hero-desktop-stack">
       <SiteLogo size="hero" className="hero-desktop-logo" priority />
 
-      <h1 className="text-hero-title-desktop">{desktopTitle}</h1>
+      <h1 className="text-hero-title-institution">{title}</h1>
 
       <h3 className="text-hero-subtitle whitespace-pre-line">{taglines.join("\n")}</h3>
 
@@ -131,7 +130,7 @@ export function HeroSectionMobile() {
       />
       <HeroGradientOverlay />
 
-      <div className="relative z-[2]">
+      <div className="hero-section-mobile-content relative z-[2]">
         <HeroTextStack />
       </div>
     </section>

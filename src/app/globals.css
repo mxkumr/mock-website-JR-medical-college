@@ -38,8 +38,8 @@
   --hero-subtitle-size: clamp(1.125rem, 1.15vw + 0.85rem, 1.625rem);
   --hero-subtitle-leading: 1.35;
   --hero-link-size: clamp(1rem, 0.45vw + 0.875rem, 1.25rem);
-  --hero-subtitle-gap: clamp(1rem, 2vw + 0.5rem, 2rem);
-  --hero-link-gap: clamp(0.625rem, 1vw + 0.25rem, 1rem);
+  --hero-subtitle-gap: clamp(1.25rem, 3vh + 0.5rem, 2.5rem);
+  --hero-link-gap: clamp(1.25rem, 2.5vh + 0.25rem, 2rem);
   --hero-content-pt: clamp(calc(var(--header-height) + 2rem), 12vh, calc(var(--header-height) + 7.5rem));
   --hero-content-px: clamp(1.25rem, 3vw, 1.875rem);
   --hero-subtitle-max-w: clamp(16rem, 42vw, 28rem);
@@ -532,26 +532,22 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-/* Mobile / tablet stacked hero title — fluid across viewports */
-.text-hero-title {
+/* Hero institution name — mobile through desktop */
+.text-hero-title-institution {
   font-family: var(--font-work-sans), system-ui, sans-serif;
-  font-size: var(--hero-title-size);
+  font-size: clamp(1.75rem, 4.5vw + 0.5rem, 4.25rem);
   font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: var(--hero-title-tracking);
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-/* Desktop hero — institution name above taglines */
-.text-hero-title-desktop {
-  font-family: var(--font-work-sans), system-ui, sans-serif;
-  font-size: clamp(2.25rem, 3.2vw + 1rem, 4.25rem);
-  font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: #ffffff;
-  max-width: var(--hero-desktop-title-max-w);
+  max-width: var(--hero-subtitle-max-w);
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .text-hero-title-institution {
+    max-width: var(--hero-desktop-title-max-w);
+  }
 }
 
 .text-hero-subtitle {
@@ -561,6 +557,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--hero-subtitle-leading);
   max-width: var(--hero-subtitle-max-w);
   color: #ffffff;
+  margin: 0;
 }
 
 .text-hero-link {
@@ -572,7 +569,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-section-mobile {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
   min-height: var(--hero-height-mobile);
+  padding-top: var(--header-height);
+  padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.hero-section-mobile-content {
+  width: 100%;
 }
 
 .hero-section-desktop {
@@ -612,22 +618,36 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--hero-logo-gap);
 }
 
+.hero-desktop-stack > .text-hero-title-institution {
+  margin-top: 0;
+}
+
 .hero-desktop-stack > .text-hero-subtitle {
   margin-top: var(--hero-subtitle-gap);
 }
 
-.hero-desktop-stack > .text-hero-link {
+.hero-text-stack > .hero-cta-wrap {
   margin-top: var(--hero-link-gap);
+}
+
+.hero-desktop-stack > .hero-cta-wrap {
+  margin-top: var(--hero-link-gap);
+}
+
+.hero-cta-wrap {
+  width: 100%;
+  max-width: var(--hero-subtitle-max-w);
+  padding-top: var(--hero-link-gap);
+  border-top: 1px solid color-mix(in srgb, #ffffff 40%, transparent);
 }
 
 .hero-text-stack {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: var(--hero-content-pt);
-  padding-left: var(--hero-content-px);
-  padding-right: var(--hero-content-px);
-  padding-bottom: clamp(2.5rem, 6vh, 3.5rem);
+  text-align: left;
+  width: 100%;
+  padding-inline: var(--hero-content-px);
 }
 
 .hero-text-stack > .text-hero-subtitle {
@@ -635,7 +655,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-text-stack > .text-hero-link {
-  margin-top: var(--hero-link-gap);
+  margin-top: 0;
+}
+
+.hero-desktop-stack > .text-hero-link {
+  margin-top: 0;
 }
 
 a {
