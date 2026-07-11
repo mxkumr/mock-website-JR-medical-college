@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { themeLinkClassName } from "./ThemeLink";
 
 export type PostCardProps = {
   title: string;
@@ -40,8 +40,13 @@ export function PostCard({
         {excerpt && (
           <p className="mt-2 line-clamp-2 text-sm text-accent-8">{excerpt}</p>
         )}
-        <span className="mt-4 inline-flex items-center gap-1 text-sm text-accent-1">
-          Read more <ArrowRight className="h-4 w-4" />
+        <span
+          className={cn(
+            themeLinkClassName,
+            "mt-4 text-accent-1 decoration-accent-1 group-hover:text-accent-2 group-hover:decoration-accent-2",
+          )}
+        >
+          Read more
         </span>
       </div>
     </Link>

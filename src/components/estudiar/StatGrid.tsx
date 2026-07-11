@@ -1,11 +1,21 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Container } from "./Container";
+import { StatCard, type StatCardData } from "./StatCard";
 
-type Stat = { value: string; label: string };
 type NavLink = { label: string; href: string };
 
+/** Staggered 5-link layout matching Estudiar stats nav (post-70). */
+const STAT_NAV_SLOTS = [
+  { muted: true, full: false },
+  { muted: false, full: false },
+  { muted: false, full: true },
+  { muted: false, full: false },
+  { muted: true, full: false },
+] as const;
+
 type StatGridProps = {
-  stats: Stat[];
+  stats: StatCardData[];
   links?: NavLink[];
   className?: string;
 };
@@ -20,29 +30,31 @@ export function StatGrid({ stats, links, className }: StatGridProps) {
     >
       <Container className="max-lg:flex max-lg:w-full max-lg:flex-1 max-lg:flex-col max-lg:justify-center">
         {links && links.length > 0 && (
-          <ul className="mb-8 flex flex-wrap gap-x-6 gap-y-2 border-b border-accent-3/30 pb-6 md:mb-12 md:gap-x-8 md:gap-y-3 md:pb-10">
-            {links.map((link) => (
-              <li key={link.label}>
-                <a
+          <nav className="stat-nav-grid" aria-label="Section navigation">
+            {links.map((link, index) => {
+              const slot = STAT_NAV_SLOTS[index] ?? { muted: false, full: false };
+
+              return (
+                <Link
+                  key={link.label}
                   href={link.href}
-                  className="text-sm font-semibold text-accent-1 underline-offset-4 hover:text-accent-2 hover:underline"
+                  className={cn(
+                    "stat-nav-link",
+                    slot.muted && "stat-nav-link--muted",
+                    slot.full && "stat-nav-link--full",
+                  )}
                 >
                   {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+                </Link>
+              );
+            })}
+          </nav>
         )}
-        <dl className="grid gap-6 sm:grid-cols-3 md:gap-10">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <dt className="font-display text-[clamp(2.5rem,6vw,4rem)] font-bold leading-none text-accent-1">
-                {stat.value}
-              </dt>
-              <dd className="text-body-muted mt-3 max-w-xs">{stat.label}</dd>
-            </div>
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 md:gap-6">
+          {stats.map((stat, index) => (
+            <StatCard key={stat.label} stat={stat} index={index} />
           ))}
-        </dl>
+        </div>
       </Container>
     </section>
   );

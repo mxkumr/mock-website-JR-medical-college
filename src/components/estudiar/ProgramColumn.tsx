@@ -1,3 +1,5 @@
+import { ThemeLink } from "./ThemeLink";
+
 type ProgramLink = { label: string; href: string };
 
 export type ProgramColumnProps = {
@@ -18,12 +20,7 @@ export function ProgramColumn({ title, badge, links }: ProgramColumnProps) {
       <ul className="mt-6 space-y-3">
         {links.map((link) => (
           <li key={link.label}>
-            <a
-              href={link.href}
-              className="text-base text-accent-1 underline-offset-4 hover:text-accent-2 hover:underline"
-            >
-              {link.label}
-            </a>
+            <ThemeLink href={link.href}>{link.label}</ThemeLink>
           </li>
         ))}
       </ul>

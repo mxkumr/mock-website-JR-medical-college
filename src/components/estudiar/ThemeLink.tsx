@@ -2,6 +2,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/** Shared CTA / content link style (matches About → University Overview). */
+export const themeLinkClassName =
+  "inline-flex w-fit items-center gap-2 font-sans text-lg font-medium capitalize underline decoration-1 underline-offset-4 transition-colors";
+
 export function ThemeLink({
   href,
   children,
@@ -12,7 +16,9 @@ export function ThemeLink({
   href: string;
   children: React.ReactNode;
   className?: string;
+  /** White underline variant for dark backgrounds (footer, contact). Same typography as default. */
   light?: boolean;
+  /** Hero CTA — white text, no underline, arrow icon. */
   variant?: "default" | "hero";
 }) {
   const isHero = variant === "hero";
@@ -21,8 +27,9 @@ export function ThemeLink({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2 font-sans text-lg capitalize underline decoration-1 underline-offset-4 transition-colors",
-        isHero ? "font-medium" : "font-normal",
+        isHero
+          ? "group inline-flex items-center gap-2 font-sans text-lg font-medium capitalize transition-colors"
+          : themeLinkClassName,
         isHero &&
           "text-white no-underline decoration-transparent hover:text-accent-2 hover:decoration-transparent",
         !isHero &&

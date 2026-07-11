@@ -24,9 +24,7 @@ export function AboutSection() {
 
           <p className="text-body max-w-none font-semibold">{body}</p>
 
-          <ThemeLink href={cta.href} className="w-fit font-sans text-lg font-medium">
-            {cta.label}
-          </ThemeLink>
+          <ThemeLink href={cta.href}>{cta.label}</ThemeLink>
         </div>
       </div>
     </FullBleed>

@@ -57,9 +57,24 @@ export const statsSection = {
     { label: "Approvals", href: "#" },
   ],
   stats: [
-    { value: "95%", label: "of recent graduates placed in healthcare" },
-    { value: "3+", label: "core medical departments" },
-    { value: "#1", label: "priority on patient-centred care" },
+    {
+      value: "95%",
+      label: "of recent graduates placed in healthcare",
+      labelLines: ["of recent graduates", "placed in healthcare"],
+      image: ASSETS.studentLife[0],
+    },
+    {
+      value: "3+",
+      label: "core medical departments",
+      labelLines: ["core medical", "departments"],
+      image: ASSETS.studentLife[1],
+    },
+    {
+      value: "#1",
+      label: "priority on patient-centred care",
+      labelLines: ["priority on", "patient-centred care"],
+      image: ASSETS.studentLife[2],
+    },
   ],
 };
 

@@ -1,6 +1,7 @@
-import Link from "next/link";
 import { Container } from "@/components/estudiar/Container";
+import { ThemeLink, themeLinkClassName } from "@/components/estudiar/ThemeLink";
 import { SiteLogo } from "@/components/estudiar/layout/SiteLogo";
+import { cn } from "@/lib/utils";
 import { contactInfo, siteInfo } from "@/data/home-content";
 
 const footerMenus = [
@@ -50,7 +51,7 @@ export function SiteFooter() {
             <p className="mt-2 text-sm">
               <a
                 href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                className="text-white/70 hover:text-accent-3"
+                className={cn(themeLinkClassName, "text-base text-white decoration-white/80 hover:text-accent-2 hover:decoration-accent-2")}
               >
                 {contactInfo.phone}
               </a>
@@ -60,7 +61,7 @@ export function SiteFooter() {
                 <a
                   key={e}
                   href={`mailto:${e}`}
-                  className="block text-white/70 hover:text-accent-3"
+                  className={cn(themeLinkClassName, "block text-base text-white decoration-white/80 hover:text-accent-2 hover:decoration-accent-2")}
                 >
                   {e}
                 </a>
@@ -76,12 +77,9 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-2.5">
                 {menu.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm capitalize text-white/70 transition-colors hover:text-accent-3"
-                    >
+                    <ThemeLink href={link.href} light className="text-base">
                       {link.label}
-                    </Link>
+                    </ThemeLink>
                   </li>
                 ))}
               </ul>

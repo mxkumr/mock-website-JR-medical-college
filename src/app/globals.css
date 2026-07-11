@@ -135,6 +135,52 @@ html {
   }
 }
 
+/* Stats section — staggered nav links (Elementor post-70) */
+.stat-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: clamp(2.5rem, 8vh, 4rem);
+}
+
+.stat-nav-link {
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  padding: 20px;
+  text-align: center;
+  color: var(--accent-6);
+  transition: color 0.2s ease;
+}
+
+.stat-nav-link--muted {
+  color: color-mix(in srgb, var(--accent-6) 30%, transparent);
+}
+
+.stat-nav-link:hover {
+  color: var(--accent-6);
+}
+
+.stat-nav-link--full {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .stat-nav-link {
+    font-size: 26px;
+    padding: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stat-nav-link {
+    font-size: 36px;
+    line-height: 1.2;
+    padding: clamp(3rem, 6vw, 5.625rem) clamp(3.5rem, 8vw, 6.875rem);
+  }
+}
+
 body {
   background: var(--accent-5);
   color: var(--accent-6);
