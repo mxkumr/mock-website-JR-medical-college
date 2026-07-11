@@ -87,7 +87,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="hero-section-desktop relative hidden overflow-hidden lg:block"
+      className="hero-section-desktop relative overflow-hidden"
       aria-label="Hero"
     >
       <motion.div
@@ -120,7 +120,7 @@ export function HeroSection() {
 export function HeroSectionMobile() {
   return (
     <section
-      className="hero-section-mobile relative overflow-hidden lg:hidden"
+      className="hero-section-mobile relative overflow-hidden"
       aria-label="Hero"
     >
       <div

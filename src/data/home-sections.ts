@@ -10,7 +10,7 @@ const U = "/uploads";
 export const ASSETS = {
   headerLogo: "/images/jrmedical.png",
   heroBackground: "/images/hero.png",
-  aboutImage: `${U}/2020/12/iStock-597958786.jpg`,
+  campusImage: "/images/campus_patient.png",
   statGraduates: "/images/stat-graduates.png",
   statDepartments: "/images/stat-departmetns.png",
   statPatientCare: "/images/stat-patient-care.png",
@@ -38,7 +38,7 @@ export const campusSection = {
   titleRight: "US",
   body: "Our campus provides world-class medical education facilities, a teaching hospital, and a supportive environment where students and patients receive the highest standard of care.",
   cta: { label: "Schedule a Tour", href: HOME.contact },
-  image: ASSETS.aboutImage,
+  image: ASSETS.campusImage,
 };
 
 export const statsSection = {

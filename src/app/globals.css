@@ -577,13 +577,26 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
 }
 
+@media (min-width: 1024px) {
+  .hero-section-mobile {
+    display: none;
+  }
+}
+
 .hero-section-mobile-content {
   width: 100%;
 }
 
 .hero-section-desktop {
+  display: none;
   min-height: var(--hero-height-desktop);
   height: var(--hero-height-desktop);
+}
+
+@media (min-width: 1024px) {
+  .hero-section-desktop {
+    display: block;
+  }
 }
 
 .hero-section-inner {
