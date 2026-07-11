@@ -1,34 +1,35 @@
+import Link from "next/link";
 import { Container } from "@/components/site/Container";
-import { ThemeLink, themeLinkClassName } from "@/components/site/ThemeLink";
 import { SiteLogo } from "@/components/site/layout/SiteLogo";
 import { cn } from "@/lib/utils";
 import { contactInfo, siteInfo } from "@/data/home-content";
+import { HOME, UNDER_CONSTRUCTION } from "@/data/routes";
 
 const footerMenus = [
   {
     title: "Useful Links",
     links: [
-      { label: "About Us", href: "#about" },
-      { label: "Our Service", href: "#services" },
-      { label: "Departments", href: "#departments" },
-      { label: "Contact", href: "#contact" },
+      { label: "About Us", href: HOME.about },
+      { label: "Our Service", href: HOME.services },
+      { label: "Departments", href: HOME.departments },
+      { label: "Contact", href: HOME.contact },
     ],
   },
   {
     title: "Our Office",
     links: [
-      { label: "Administration", href: "#" },
-      { label: "Facilities", href: "#" },
-      { label: "Approvals", href: "#" },
-      { label: "NMC MARB", href: "#" },
+      { label: "Administration", href: UNDER_CONSTRUCTION },
+      { label: "Facilities", href: UNDER_CONSTRUCTION },
+      { label: "Approvals", href: UNDER_CONSTRUCTION },
+      { label: "NMC MARB", href: UNDER_CONSTRUCTION },
     ],
   },
   {
     title: "Admissions",
     links: [
-      { label: "MBBS Course & Fee 2025-26", href: "#" },
-      { label: "Online Fee Payment", href: "#" },
-      { label: "MBBS Admission Instruction 2025-26", href: "#" },
+      { label: "MBBS Course & Fee 2025-26", href: UNDER_CONSTRUCTION },
+      { label: "Online Fee Payment", href: UNDER_CONSTRUCTION },
+      { label: "MBBS Admission Instruction 2025-26", href: UNDER_CONSTRUCTION },
     ],
   },
 ];
@@ -51,19 +52,19 @@ export function SiteFooter() {
             <p className="mt-2 text-sm">
               <a
                 href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                className={cn(themeLinkClassName, "text-base text-white decoration-white/80 hover:text-accent-2 hover:decoration-accent-2")}
+                className={cn("footer-link", "footer-link--plain")}
               >
                 {contactInfo.phone}
               </a>
             </p>
-            <p className="mt-2 text-sm">
-              {contactInfo.emails.map((e) => (
+            <p className="mt-2 space-y-1 text-sm">
+              {contactInfo.emails.map((email) => (
                 <a
-                  key={e}
-                  href={`mailto:${e}`}
-                  className={cn(themeLinkClassName, "block text-base text-white decoration-white/80 hover:text-accent-2 hover:decoration-accent-2")}
+                  key={email}
+                  href={`mailto:${email}`}
+                  className={cn("footer-link", "footer-link--plain block")}
                 >
-                  {e}
+                  {email}
                 </a>
               ))}
             </p>
@@ -77,9 +78,9 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-2.5">
                 {menu.links.map((link) => (
                   <li key={link.label}>
-                    <ThemeLink href={link.href} light className="text-base">
+                    <Link href={link.href} className="footer-link">
                       {link.label}
-                    </ThemeLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -91,7 +92,7 @@ export function SiteFooter() {
       <div className="relative border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-3 py-6 text-xs sm:flex-row">
           <p>
-            Copyright {year} © {siteInfo.name}
+            Copyright {year} © The CRUD Studio
           </p>
           <p className="text-white/40">
             Our Location — Villupuram District, Tamilnadu

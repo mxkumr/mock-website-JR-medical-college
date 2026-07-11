@@ -1,31 +1,28 @@
-type PriceItem = { label: string; price: string };
+import { ThemeLink } from "./ThemeLink";
 
 export type PriceListProps = {
   period: string;
-  items: PriceItem[];
-  total: string;
+  items: { label: string; price: string }[];
+  detailsCta?: { label: string; href: string };
 };
 
-export function PriceList({ period, items, total }: PriceListProps) {
+export function PriceList({ period, items, detailsCta }: PriceListProps) {
   return (
-    <div className="border border-accent-3/50 bg-accent-4 p-6">
-      <p className="text-sm font-semibold uppercase tracking-wider text-accent-1">
-        {period}
-      </p>
-      <ul className="mt-4 space-y-3 border-t border-accent-3/40 pt-4">
+    <div className="tuition-price-list">
+      <h4 className="tuition-price-list-title whitespace-pre-line">{period}</h4>
+      <ul className="tuition-price-list-items">
         {items.map((item) => (
-          <li
-            key={item.label}
-            className="flex justify-between gap-4 text-sm text-accent-8"
-          >
+          <li key={item.label} className="tuition-price-list-row">
             <span>{item.label}</span>
-            <span className="font-medium text-accent-6">{item.price}</span>
+            <span>{item.price}</span>
           </li>
         ))}
       </ul>
-      <p className="mt-4 border-t border-accent-3/40 pt-4 font-display text-lg font-bold text-accent-1">
-        {total}
-      </p>
+      {detailsCta && (
+        <ThemeLink href={detailsCta.href} className="tuition-price-card-cta">
+          {detailsCta.label}
+        </ThemeLink>
+      )}
     </div>
   );
 }

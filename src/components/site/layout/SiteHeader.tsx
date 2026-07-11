@@ -7,25 +7,26 @@ import { ChevronDown, Menu, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useStickyHeader } from "@/hooks/useStickyHeader";
 import { SiteLogo } from "@/components/site/layout/SiteLogo";
+import { HOME, UNDER_CONSTRUCTION } from "@/data/routes";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#about" },
-  { label: "Administration", href: "#" },
-  { label: "Departments", href: "#departments", children: true },
-  { label: "Facilities", href: "#" },
-  { label: "Approvals", href: "#" },
-  { label: "NMC MARB", href: "#" },
-  { label: "Foundation Courses", href: "#" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: HOME.about },
+  { label: "Administration", href: UNDER_CONSTRUCTION },
+  { label: "Departments", href: HOME.departments, children: true },
+  { label: "Facilities", href: UNDER_CONSTRUCTION },
+  { label: "Approvals", href: UNDER_CONSTRUCTION },
+  { label: "NMC MARB", href: UNDER_CONSTRUCTION },
+  { label: "Foundation Courses", href: UNDER_CONSTRUCTION },
+  { label: "Contact", href: HOME.contact },
 ];
 
 const mobileNavItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
-  { label: "Academics", href: "#departments" },
-  { label: "Admission", href: "#" },
-  { label: "Student Life", href: "#" },
+  { label: "About", href: HOME.about },
+  { label: "Academics", href: HOME.departments },
+  { label: "Admission", href: UNDER_CONSTRUCTION },
+  { label: "Student Life", href: UNDER_CONSTRUCTION },
 ];
 
 function SiteHeaderMobile() {

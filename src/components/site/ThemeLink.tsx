@@ -30,6 +30,7 @@ export function ThemeLink({
         isHero
           ? "group inline-flex items-center gap-2 font-sans text-lg font-medium capitalize transition-colors"
           : themeLinkClassName,
+        light && "theme-link-light",
         isHero &&
           "text-white no-underline decoration-transparent hover:text-accent-2 hover:decoration-transparent",
         !isHero &&

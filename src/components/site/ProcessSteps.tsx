@@ -10,18 +10,14 @@ export function ProcessSteps({
   className?: string;
 }) {
   return (
-    <ol className={cn("space-y-10", className)}>
+    <ol className={cn("apply-steps", className)}>
       {steps.map((step) => (
-        <li key={step.num} className="flex gap-6">
-          <span className="font-display text-4xl font-bold text-accent-2">
-            {step.num}
-          </span>
-          <div>
-            <h4 className="font-display text-h4 font-extrabold text-accent-6">
-              {step.title}
-            </h4>
-            <p className="text-body-muted mt-2">{step.body}</p>
+        <li key={step.num} className="apply-step">
+          <div className="apply-step-header">
+            <span className="apply-step-num">{step.num}</span>
+            <h4 className="apply-step-title">{step.title}</h4>
           </div>
+          <p className="apply-step-body">{step.body}</p>
         </li>
       ))}
     </ol>

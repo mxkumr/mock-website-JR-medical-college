@@ -1,32 +1,19 @@
-import Image from "next/image";
-import {
-  FullBleed,
-  AccentTitle,
-  ProcessSteps,
-  ThemeLink,
-} from "@/components/site";
+import { FullBleed, ProcessSteps, ThemeLink } from "@/components/site";
 import { applySection } from "@/data/home-sections";
 
 export function ApplySection() {
   return (
-    <FullBleed snapOnMobile className="bg-accent-4 py-10 md:py-28">
-      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-        <div>
-          <AccentTitle parts={[applySection.title]} />
-          <ProcessSteps steps={applySection.steps} className="mt-8 md:mt-12" />
-          <ThemeLink href={applySection.cta.href} className="mt-8 md:mt-10">
-            {applySection.cta.label}
-          </ThemeLink>
-        </div>
-        <div className="relative aspect-[4/3] max-h-[min(36dvh,280px)] overflow-hidden lg:aspect-[4/5] lg:max-h-none">
-          <Image
-            src={applySection.image}
-            alt="Students applying to medical college"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
+    <FullBleed
+      snapOnMobile
+      className="bg-accent-4 py-10 md:py-28"
+      innerClassName="px-5 lg:px-[30px]"
+    >
+      <div className="max-w-[1060px]">
+        <h2 className="apply-title">{applySection.title}</h2>
+        <ProcessSteps steps={applySection.steps} />
+        <ThemeLink href={applySection.cta.href} className="apply-cta">
+          {applySection.cta.label}
+        </ThemeLink>
       </div>
     </FullBleed>
   );

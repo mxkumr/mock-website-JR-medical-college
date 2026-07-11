@@ -10,28 +10,19 @@ export type StatCardData = {
 
 const CARD_THEMES = [
   {
-    bg: "bg-accent-1",
     valueClass: "text-white",
     labelClass: "text-white",
     align: "items-end text-right",
-    imagePosition: "object-bottom object-left",
-    imageAlign: "left-0",
   },
   {
-    bg: "bg-accent-2",
     valueClass: "text-accent-6",
     labelClass: "text-accent-6",
     align: "items-start text-left",
-    imagePosition: "object-bottom object-right",
-    imageAlign: "right-0",
   },
   {
-    bg: "bg-accent-3",
     valueClass: "text-accent-6",
     labelClass: "text-accent-6",
     align: "items-start text-left",
-    imagePosition: "object-bottom object-right",
-    imageAlign: "right-0",
   },
 ] as const;
 
@@ -44,14 +35,23 @@ export function StatCard({ stat, index }: StatCardProps) {
   const theme = CARD_THEMES[index] ?? CARD_THEMES[0];
 
   return (
-    <article
-      className={cn(
-        "stat-card relative flex min-h-[clamp(280px,72vw,380px)] flex-col overflow-hidden",
-        theme.bg,
-        theme.align,
-      )}
-    >
-      <dl className={cn("relative z-10 m-0 flex flex-col p-[30px]", theme.align)}>
+    <article className="stat-card relative flex min-h-[clamp(280px,72vw,380px)] flex-col overflow-hidden">
+      <Image
+        src={stat.image}
+        alt=""
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 640px) 100vw, 33vw"
+        priority={index === 0}
+        aria-hidden
+      />
+
+      <dl
+        className={cn(
+          "relative z-10 m-0 flex flex-1 flex-col justify-end p-[30px]",
+          theme.align,
+        )}
+      >
         <dt
           className={cn(
             "font-display text-[clamp(2.75rem,12vw,5rem)] font-black leading-none",
@@ -71,22 +71,6 @@ export function StatCard({ stat, index }: StatCardProps) {
           {stat.labelLines[1]}
         </dd>
       </dl>
-
-      <div
-        className={cn(
-          "pointer-events-none absolute bottom-0 h-[min(62%,250px)] w-[min(75%,220px)]",
-          theme.imageAlign,
-        )}
-      >
-        <Image
-          src={stat.image}
-          alt=""
-          fill
-          className={cn("object-contain", theme.imagePosition)}
-          sizes="(max-width: 768px) 220px, 33vw"
-          aria-hidden
-        />
-      </div>
     </article>
   );
 }

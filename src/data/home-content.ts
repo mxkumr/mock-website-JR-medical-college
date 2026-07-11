@@ -1,3 +1,5 @@
+import { HOME, UNDER_CONSTRUCTION } from "@/data/routes";
+
 export const siteInfo = {
   name: "JR Medical College and Hospital",
   shortName: "JRMCH",
@@ -40,7 +42,7 @@ export const heroTypography = {
       "Aspire to heal.",
       "The best for everyone.",
     ],
-    cta: { label: "View Our Programs", href: "#departments" },
+    cta: { label: "View Our Programs", href: HOME.departments },
   },
 };
 
@@ -48,14 +50,14 @@ export const announcements = [
   {
     id: "1",
     title: "MBBS Admission Instructions After Allotment",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     image:
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
   },
   {
     id: "2",
     title: "International Yoga Day 2025",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     image:
       "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
   },
@@ -124,7 +126,7 @@ export const departmentsSection = {
         "The Clinical Microbiology Department of JRMCH focuses on MBBS education. The Clinical Microbiology Laboratory serves as a backbone in UG teaching and Patient diagnosis and is adjunctive for excellence in Patient care and Management.",
       image:
         "https://images.unsplash.com/photo-1532187863486-abf9db3851ce?w=600&q=80",
-      href: "#",
+      href: UNDER_CONSTRUCTION,
     },
     {
       id: "pharmacology",
@@ -133,7 +135,7 @@ export const departmentsSection = {
         "The Department is with the goal to offer graduate study on Pharmacology. Since its inception it has been engaged in Teaching, Research, and patient care by offering Clinical Lab services.",
       image:
         "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80",
-      href: "#",
+      href: UNDER_CONSTRUCTION,
     },
     {
       id: "biochemistry",
@@ -142,7 +144,7 @@ export const departmentsSection = {
         "The Department is with the goal of offering undergraduate study in Biochemistry. Since its inception it is engaged in Diagnostic, teaching and research.",
       image:
         "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80",
-      href: "#",
+      href: UNDER_CONSTRUCTION,
     },
   ],
 };
@@ -151,7 +153,7 @@ export const latestNews = {
   title: "Latest News",
   subtitle: "The Best in doctor",
   date: "June 16, 2022",
-  href: "#",
+  href: UNDER_CONSTRUCTION,
   image:
     "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80",
 };

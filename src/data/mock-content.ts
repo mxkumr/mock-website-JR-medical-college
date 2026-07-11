@@ -1,10 +1,12 @@
+import { UNDER_CONSTRUCTION } from "@/data/routes";
+
 export const heroContent = {
   eyebrow: "Excellence in Medical Education",
   title: "Shaping Tomorrow's Healthcare Leaders",
   description:
     "A premier institution dedicated to advancing medical science, compassionate patient care, and transformative research that improves lives across communities.",
-  primaryCta: { label: "Apply Now", href: "#" },
-  secondaryCta: { label: "Explore Programs", href: "#" },
+  primaryCta: { label: "Apply Now", href: UNDER_CONSTRUCTION },
+  secondaryCta: { label: "Explore Programs", href: UNDER_CONSTRUCTION },
   image:
     "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
   stats: [
@@ -22,7 +24,7 @@ export const departments = [
       "Rigorous clinical training combined with cutting-edge biomedical research.",
     image:
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     programs: 8,
   },
   {
@@ -32,7 +34,7 @@ export const departments = [
       "Preparing compassionate nurses with evidence-based practice expertise.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15f574088?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     programs: 5,
   },
   {
@@ -42,7 +44,7 @@ export const departments = [
       "Advancing pharmaceutical sciences and patient-centered drug therapy.",
     image:
       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     programs: 4,
   },
   {
@@ -52,7 +54,7 @@ export const departments = [
       "Addressing global health challenges through policy, research, and community engagement.",
     image:
       "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     programs: 6,
   },
 ];
@@ -65,7 +67,7 @@ export const faculty = [
     department: "Internal Medicine",
     image:
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     email: "s.mitchell@college.edu",
   },
   {
@@ -75,7 +77,7 @@ export const faculty = [
     department: "Biomedical Sciences",
     image:
       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     email: "j.chen@college.edu",
   },
   {
@@ -85,7 +87,7 @@ export const faculty = [
     department: "Pediatrics",
     image:
       "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     email: "e.rodriguez@college.edu",
   },
   {
@@ -95,7 +97,7 @@ export const faculty = [
     department: "Surgery",
     image:
       "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
     email: "m.okonkwo@college.edu",
   },
 ];
@@ -110,7 +112,7 @@ export const news = [
     date: "Mar 15, 2026",
     image:
       "https://images.unsplash.com/photo-1532187863486-abf9db3851ce?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
   },
   {
     id: "2",
@@ -121,7 +123,7 @@ export const news = [
     date: "Mar 10, 2026",
     image:
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
   },
   {
     id: "3",
@@ -132,7 +134,7 @@ export const news = [
     date: "Mar 5, 2026",
     image:
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
-    href: "#",
+    href: UNDER_CONSTRUCTION,
   },
 ];
 
@@ -213,6 +215,6 @@ export const ctaContent = {
   title: "Begin Your Journey in Medicine",
   description:
     "Join a community of scholars, clinicians, and researchers dedicated to improving human health. Applications for the upcoming academic year are now open.",
-  primaryCta: { label: "Apply for Admission", href: "#" },
-  secondaryCta: { label: "Schedule a Visit", href: "#" },
+  primaryCta: { label: "Apply for Admission", href: UNDER_CONSTRUCTION },
+  secondaryCta: { label: "Schedule a Visit", href: UNDER_CONSTRUCTION },
 };

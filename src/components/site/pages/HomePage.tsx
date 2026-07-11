@@ -14,7 +14,6 @@ import {
   LeadersSection,
   StudentLifeSection,
   NewsSection,
-  ExperienceSection,
   FormCtaSection,
 } from "@/components/site/sections";
 
@@ -35,7 +34,6 @@ export function HomePage() {
           <LeadersSection />
           <StudentLifeSection />
           <NewsSection />
-          <ExperienceSection />
           <FormCtaSection />
         </main>
         <SiteFooter />
