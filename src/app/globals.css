@@ -1409,15 +1409,18 @@ a.programs-more-link:hover {
 
 @media (min-width: 1024px) {
   .student-life-header {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: end;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(1.5rem, 3vh, 2.5rem);
   }
 }
 
 .student-life-title-wrap {
   position: relative;
   z-index: 2;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .student-life-shape {
@@ -1460,6 +1463,13 @@ a.programs-more-link:hover {
 
 .student-life-content {
   max-width: 32rem;
+}
+
+@media (min-width: 1024px) {
+  .student-life-content {
+    max-width: 28rem;
+    padding-top: 0.25rem;
+  }
 }
 
 .student-life-quote {
