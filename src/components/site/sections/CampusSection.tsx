@@ -1,5 +1,5 @@
-import { CampusBanner } from "@/components/estudiar";
-import { campusSection } from "@/data/estudiar-home";
+import { CampusBanner } from "@/components/site";
+import { campusSection } from "@/data/home-sections";
 
 export function CampusSection() {
   return (

@@ -1,6 +1,6 @@
-import { Container } from "@/components/estudiar/Container";
-import { ThemeLink, themeLinkClassName } from "@/components/estudiar/ThemeLink";
-import { SiteLogo } from "@/components/estudiar/layout/SiteLogo";
+import { Container } from "@/components/site/Container";
+import { ThemeLink, themeLinkClassName } from "@/components/site/ThemeLink";
+import { SiteLogo } from "@/components/site/layout/SiteLogo";
 import { cn } from "@/lib/utils";
 import { contactInfo, siteInfo } from "@/data/home-content";
 
@@ -101,6 +101,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-
-/** @deprecated Use SiteFooter */
-export const EstudiarFooter = SiteFooter;

@@ -2,8 +2,8 @@ import {
   FullBleed,
   SectionHeader,
   PriceList,
-} from "@/components/estudiar";
-import { leadersSection } from "@/data/estudiar-home";
+} from "@/components/site";
+import { leadersSection } from "@/data/home-sections";
 
 export function LeadersSection() {
   return (

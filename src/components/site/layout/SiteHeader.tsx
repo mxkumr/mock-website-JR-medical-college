@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ChevronDown, Menu, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useStickyHeader } from "@/hooks/useStickyHeader";
-import { SiteLogo } from "@/components/estudiar/layout/SiteLogo";
+import { SiteLogo } from "@/components/site/layout/SiteLogo";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -146,6 +146,3 @@ export function SiteHeader() {
     </>
   );
 }
-
-/** @deprecated Use SiteHeader */
-export const EstudiarHeader = SiteHeader;

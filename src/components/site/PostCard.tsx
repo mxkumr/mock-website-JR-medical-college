@@ -12,7 +12,7 @@ export type PostCardProps = {
   className?: string;
 };
 
-/** Estudiar blog/post card — hover scale image, accent title link. */
+/** Blog/post card — hover scale image, themed link. */
 export function PostCard({
   title,
   date,

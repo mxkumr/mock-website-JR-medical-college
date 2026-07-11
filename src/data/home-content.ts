@@ -29,7 +29,7 @@ export const heroVideo = {
     "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80",
 };
 
-/** Estudiar-style typographic hero — letter layout mirrors the LEADER pattern */
+/** Typographic hero — letter layout mirrors the reference LEADER pattern */
 export const heroTypography = {
   left: "H",
   right: "ER",

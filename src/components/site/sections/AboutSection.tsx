@@ -1,7 +1,7 @@
-import { FullBleed } from "@/components/estudiar";
-import { ThemeLink } from "@/components/estudiar/ThemeLink";
-import { SiteLogo } from "@/components/estudiar/layout/SiteLogo";
-import { aboutSection } from "@/data/estudiar-home";
+import { FullBleed } from "@/components/site";
+import { ThemeLink } from "@/components/site/ThemeLink";
+import { SiteLogo } from "@/components/site/layout/SiteLogo";
+import { aboutSection } from "@/data/home-sections";
 
 export function AboutSection() {
   const { title, body, cta } = aboutSection;

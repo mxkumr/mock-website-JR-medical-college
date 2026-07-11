@@ -1,5 +1,5 @@
-import { FullBleed, SectionHeader, ProgramColumn, ThemeLink } from "@/components/estudiar";
-import { programsSection } from "@/data/estudiar-home";
+import { FullBleed, SectionHeader, ProgramColumn, ThemeLink } from "@/components/site";
+import { programsSection } from "@/data/home-sections";
 
 export function ProgramsSection() {
   return (

@@ -3,8 +3,8 @@ import {
   AccentTitle,
   ThemeLink,
   ImageGrid,
-} from "@/components/estudiar";
-import { studentLifeSection, ASSETS } from "@/data/estudiar-home";
+} from "@/components/site";
+import { studentLifeSection, ASSETS } from "@/data/home-sections";
 
 export function StudentLifeSection() {
   return (

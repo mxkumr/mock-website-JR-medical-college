@@ -3,8 +3,8 @@ import {
   SiteFooter,
   HeroSection,
   HeroSectionMobile,
-} from "@/components/estudiar/layout";
-import { ScrollToTop } from "@/components/estudiar/ScrollToTop";
+} from "@/components/site/layout";
+import { ScrollToTop } from "@/components/site/ScrollToTop";
 import {
   AboutSection,
   CampusSection,
@@ -16,9 +16,9 @@ import {
   NewsSection,
   ExperienceSection,
   FormCtaSection,
-} from "@/components/estudiar/sections";
+} from "@/components/site/sections";
 
-/** Full homepage — Estudiar Home 2 layout composed from reusable components. */
+/** Full homepage layout composed from reusable site components. */
 export function HomePage() {
   return (
     <>

@@ -8,7 +8,7 @@ type PageTitleProps = {
   light?: boolean;
 };
 
-/** Estudiar sub-header page title with decorative underline. */
+/** Sub-header page title with decorative underline. */
 export function PageTitle({
   title,
   description,

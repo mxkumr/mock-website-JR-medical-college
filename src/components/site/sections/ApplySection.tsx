@@ -4,8 +4,8 @@ import {
   AccentTitle,
   ProcessSteps,
   ThemeLink,
-} from "@/components/estudiar";
-import { applySection } from "@/data/estudiar-home";
+} from "@/components/site";
+import { applySection } from "@/data/home-sections";
 
 export function ApplySection() {
   return (

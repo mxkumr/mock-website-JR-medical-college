@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Hybrid theme — JRMCH primary (#33247f) + Estudiar gold accents */
+/* Hybrid theme — JRMCH primary (#33247f) + gold accents */
 :root {
   --accent-1: #33247f;
   --accent-2: #ffc53a;
@@ -210,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Estudiar / elementor.vamtam.com — Inter body, Work Sans headings */
+/* Site typography — Inter body, Work Sans headings */
 .text-body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 16px;
@@ -261,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-h5 { font-size: var(--text-h5); line-height: 1.2; font-weight: 600; color: var(--accent-6); }
 .text-h6 { font-size: var(--text-h6); line-height: 1.3; font-weight: 500; color: var(--accent-6); }
 
-/* Estudiar Accent Title — 200px Work Sans uppercase (section headings) */
+/* Accent Title — 200px Work Sans uppercase (section headings) */
 .text-accent-title {
   font-family: var(--font-work-sans), system-ui, sans-serif;
   font-size: var(--text-accent-title);

@@ -1,5 +1,5 @@
-import { FullBleed, SectionHeader } from "@/components/estudiar";
-import { experienceSection } from "@/data/estudiar-home";
+import { FullBleed, SectionHeader } from "@/components/site";
+import { experienceSection } from "@/data/home-sections";
 
 export function ExperienceSection() {
   return (

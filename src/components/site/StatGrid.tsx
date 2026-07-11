@@ -5,7 +5,7 @@ import { StatCard, type StatCardData } from "./StatCard";
 
 type NavLink = { label: string; href: string };
 
-/** Staggered 5-link layout matching Estudiar stats nav (post-70). */
+/** Staggered 5-link layout for stats section nav. */
 const STAT_NAV_SLOTS = [
   { muted: true, full: false },
   { muted: false, full: false },

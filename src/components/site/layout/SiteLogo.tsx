@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { ASSETS } from "@/data/estudiar-home";
+import { ASSETS } from "@/data/home-sections";
 
 export function SiteLogo({
   className,

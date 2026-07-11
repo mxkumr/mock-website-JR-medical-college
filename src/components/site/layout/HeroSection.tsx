@@ -11,8 +11,8 @@ import {
   useSpring,
   useMotionValue,
 } from "framer-motion";
-import { ThemeLink } from "@/components/estudiar/ThemeLink";
-import { heroSection, ASSETS } from "@/data/estudiar-home";
+import { ThemeLink } from "@/components/site/ThemeLink";
+import { heroSection, ASSETS } from "@/data/home-sections";
 import { cn } from "@/lib/utils";
 
 function HeroGradientOverlay() {
@@ -221,9 +221,3 @@ export function HeroSectionMobile() {
     </section>
   );
 }
-
-/** @deprecated Use HeroSection */
-export const EstudiarHero = HeroSection;
-
-/** @deprecated Use HeroSectionMobile */
-export const EstudiarHeroMobile = HeroSectionMobile;

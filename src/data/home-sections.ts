@@ -1,4 +1,6 @@
-/** Homepage content mapped from Estudiar Home 2 (post 70) → JR Medical College */
+/** Homepage section content for JR Medical College */
+
+import type { StatCardData } from "@/components/site/StatCard";
 
 const U = "/uploads";
 
@@ -75,7 +77,7 @@ export const statsSection = {
       labelLines: ["priority on", "patient-centred care"],
       image: ASSETS.studentLife[2],
     },
-  ],
+  ] satisfies StatCardData[],
 };
 
 export const programsSection = {

@@ -1,5 +1,5 @@
-import { StatGrid } from "@/components/estudiar";
-import { statsSection } from "@/data/estudiar-home";
+import { StatGrid } from "@/components/site";
+import { statsSection } from "@/data/home-sections";
 
 export function StatsSection() {
   return (

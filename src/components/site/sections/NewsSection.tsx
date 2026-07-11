@@ -1,5 +1,5 @@
-import { FullBleed, PostCard, ThemeLink } from "@/components/estudiar";
-import { newsSection } from "@/data/estudiar-home";
+import { FullBleed, PostCard, ThemeLink } from "@/components/site";
+import { newsSection } from "@/data/home-sections";
 
 export function NewsSection() {
   return (

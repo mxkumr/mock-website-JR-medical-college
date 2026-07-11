@@ -1,5 +1,5 @@
-import { FullBleed, Container, AccentTitle, ThemeLink } from "@/components/estudiar";
-import { formSection } from "@/data/estudiar-home";
+import { FullBleed, Container, AccentTitle, ThemeLink } from "@/components/site";
+import { formSection } from "@/data/home-sections";
 
 export function FormCtaSection() {
   return (

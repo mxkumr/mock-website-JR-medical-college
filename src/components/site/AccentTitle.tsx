@@ -7,7 +7,7 @@ type AccentTitleProps = {
   inline?: boolean;
 };
 
-/** Estudiar giant split heading — typography 151358a (200px Work Sans uppercase). */
+/** Giant split heading — typography 151358a (200px Work Sans uppercase). */
 export function AccentTitle({
   parts,
   className,
