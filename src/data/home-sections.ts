@@ -199,28 +199,16 @@ export const gallerySection = {
   cta: { label: "View All", href: UNDER_CONSTRUCTION },
   images: [
     {
-      src: `${JR}/campus-entrance-main-sign.jpg`,
-      alt: "JR Medical College and Hospital entrance sign",
-    },
-    {
-      src: `${JR}/campus-main-building-exterior.jpg`,
-      alt: "Main campus building exterior",
-    },
-    {
-      src: `${JR}/campus-entrance-portico.jpg`,
-      alt: "Campus entrance portico",
-    },
-    {
       src: `${JR}/lecture-hall-auditorium-session.jpg`,
       alt: "Students in the lecture hall auditorium",
     },
     {
-      src: `${JR}/classroom-students-at-desks.jpg`,
-      alt: "Students seated in a classroom",
-    },
-    {
       src: `${JR}/students-lab-coats-group-study.jpg`,
       alt: "Medical students studying around a digital anatomy table",
+    },
+    {
+      src: `${JR}/students-working-at-lab-bench.jpg`,
+      alt: "Students working at a laboratory microscope",
     },
     {
       src: `${JR}/student-microscope-closeup.jpg`,
@@ -231,44 +219,24 @@ export const gallerySection = {
       alt: "Students studying anatomy with a skeleton model",
     },
     {
-      src: `${JR}/students-working-at-lab-bench.jpg`,
-      alt: "Students working at a laboratory bench",
-    },
-    {
-      src: `${JR}/ct-scanner-front-view.jpg`,
-      alt: "CT scanner in the radiology suite",
-    },
-    {
-      src: `${JR}/operating-theatre-overview.jpg`,
-      alt: "Operating theatre with surgical table and lights",
-    },
-    {
-      src: `${JR}/clinical-procedure-patient-exam.jpg`,
-      alt: "Clinician performing a patient examination",
-    },
-    {
-      src: `${JR}/ophthalmology-slit-lamp-exam.jpg`,
-      alt: "Ophthalmology slit-lamp examination",
-    },
-    {
-      src: `${JR}/hospital-inpatient-ward-beds.jpg`,
-      alt: "Hospital inpatient ward",
-    },
-    {
-      src: `${JR}/library-bookshelves-interior.jpg`,
-      alt: "College library bookshelves",
-    },
-    {
       src: `${JR}/student-studying-at-library-desk.jpg`,
       alt: "Student studying at a library desk",
     },
     {
-      src: `${JR}/radio-diagnosis-entrance.jpg`,
-      alt: "Department of Radio-Diagnosis entrance",
+      src: `${JR}/student-browsing-library-books.jpg`,
+      alt: "Student browsing books in the college library",
     },
     {
-      src: `${JR}/hostel-twin-room.jpg`,
-      alt: "Hostel twin sharing room",
+      src: `${JR}/clinical-procedure-patient-exam.jpg`,
+      alt: "Clinical ultrasound examination training",
+    },
+    {
+      src: `${JR}/clinical-training-headset-procedure.jpg`,
+      alt: "Clinical eye examination with head-mounted scope",
+    },
+    {
+      src: `${JR}/doctor-eye-exam-microscope.jpg`,
+      alt: "Student using ophthalmic exam equipment",
     },
   ] satisfies GalleryImage[],
 };
