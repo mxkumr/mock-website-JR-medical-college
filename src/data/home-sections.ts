@@ -195,7 +195,7 @@ export const studentLifeSection = {
 };
 
 export const gallerySection = {
-  title: "Campus Gallery",
+  title: "GALLERY",
   cta: { label: "View All", href: UNDER_CONSTRUCTION },
   images: [
     {

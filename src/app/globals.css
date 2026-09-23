@@ -1607,20 +1607,62 @@ a.programs-more-link:hover {
   }
 }
 
-/* Gallery carousel — same 3-up rhythm as Estudiar image grid */
+/* Gallery section — Estudiar accent title + Elementor media carousel */
+.gallery-section {
+  overflow: hidden;
+  background-color: var(--accent-5);
+}
+
+.gallery-container {
+  padding-block: clamp(2.5rem, 8vh, 5rem);
+}
+
+@media (min-width: 1024px) {
+  .gallery-container {
+    padding-block: var(--section-pad-y-lg);
+  }
+}
+
+.gallery-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: clamp(1.25rem, 4vh, 2.5rem);
+}
+
+.gallery-title {
+  margin: 0;
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  font-size: clamp(3.5rem, 12vw, var(--text-accent-title));
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: var(--text-accent-title-tracking);
+  text-transform: uppercase;
+  color: var(--accent-1);
+}
+
+.gallery-cta {
+  flex-shrink: 0;
+}
+
 .gallery-carousel {
+  position: relative;
+}
+
+.gallery-carousel-viewport {
   position: relative;
 }
 
 .gallery-carousel-track {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding-bottom: 0.25rem;
 }
 
 .gallery-carousel-track::-webkit-scrollbar {
@@ -1635,46 +1677,105 @@ a.programs-more-link:hover {
   overflow: hidden;
   scroll-snap-align: start;
   border-radius: var(--card-radius);
+  background-color: var(--accent-4);
 }
 
 @media (min-width: 768px) {
   .gallery-carousel-track {
-    gap: 1.5rem;
+    gap: 1.875rem;
   }
 
   .gallery-carousel-slide {
-    flex-basis: calc((100% - 3rem) / 3);
+    flex-basis: calc((100% - 3.75rem) / 3);
   }
 }
 
-.gallery-carousel-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+@media (min-width: 1024px) {
+  .gallery-carousel-track {
+    gap: 2.5rem;
+  }
+
+  .gallery-carousel-slide {
+    flex-basis: calc((100% - 5rem) / 3);
+  }
 }
 
-.gallery-carousel-btn {
+/* Elementor-style side arrows */
+.gallery-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 46px;
   height: 46px;
-  border: 1px solid var(--accent-6);
-  background: var(--accent-5);
-  color: var(--accent-6);
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transform: translateY(-50%);
+  border: none;
+  background-color: var(--accent-1);
+  color: var(--accent-5);
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
-.gallery-carousel-btn:hover:not(:disabled) {
-  background: var(--accent-2);
-  border-color: var(--accent-2);
+.gallery-carousel-arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.gallery-carousel-arrow:hover:not(:disabled) {
+  background-color: var(--accent-2);
   color: var(--accent-6);
 }
 
-.gallery-carousel-btn:disabled {
+.gallery-carousel-arrow:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+}
+
+.gallery-carousel-arrow--prev {
+  left: 0;
+}
+
+.gallery-carousel-arrow--next {
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .gallery-carousel-arrow--prev {
+    left: -8px;
+  }
+
+  .gallery-carousel-arrow--next {
+    right: -8px;
+  }
+}
+
+/* Elementor swiper-style dots */
+.gallery-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.gallery-carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--accent-1) 25%, transparent);
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-carousel-dot--active {
+  background-color: var(--accent-1);
+  transform: scale(1.15);
+}
+
+.gallery-carousel-dot:hover {
+  background-color: var(--accent-2);
 }
 
 .news-card {

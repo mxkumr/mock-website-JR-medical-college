@@ -10,12 +10,12 @@ export function GallerySection() {
       id="gallery"
       snapOnMobile
       boxed={false}
-      className="news-section section-gallery"
+      className="gallery-section section-gallery"
     >
-      <div className="news-container site-container">
-        <header className="news-header">
-          <h2 className="news-section-title">{title}</h2>
-          <ThemeLink href={cta.href} className="news-section-cta">
+      <div className="gallery-container site-container">
+        <header className="gallery-header">
+          <h2 className="gallery-title">{title}</h2>
+          <ThemeLink href={cta.href} className="gallery-cta">
             {cta.label}
           </ThemeLink>
         </header>

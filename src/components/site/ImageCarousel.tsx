@@ -11,85 +11,124 @@ type ImageCarouselProps = {
   className?: string;
 };
 
-/** Horizontal image carousel matching Estudiar 3-up gallery rhythm. */
+/** Elementor-style media carousel (3-up desktop, side arrows, accent dots). */
 export function ImageCarousel({ images, className }: ImageCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
+  const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
 
-  const updateControls = useCallback(() => {
+  const measure = useCallback(() => {
     const el = trackRef.current;
     if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setCanPrev(el.scrollLeft > 4);
-    setCanNext(el.scrollLeft < max - 4);
-  }, []);
+    const slide = el.querySelector<HTMLElement>(".gallery-carousel-slide");
+    if (!slide) return;
+    const gap = Number.parseFloat(getComputedStyle(el).gap || "0") || 0;
+    const slideWidth = slide.offsetWidth + gap;
+    const visible = Math.max(1, Math.round(el.clientWidth / slideWidth));
+    const pages = Math.max(1, images.length - visible + 1);
+    setPageCount(pages);
+    const nextPage = Math.round(el.scrollLeft / slideWidth);
+    setPage(Math.min(Math.max(0, nextPage), pages - 1));
+  }, [images.length]);
 
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
-    updateControls();
-    el.addEventListener("scroll", updateControls, { passive: true });
-    window.addEventListener("resize", updateControls);
+    measure();
+    el.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
     return () => {
-      el.removeEventListener("scroll", updateControls);
-      window.removeEventListener("resize", updateControls);
+      el.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
     };
-  }, [updateControls, images]);
+  }, [measure]);
 
-  const scrollByPage = (direction: -1 | 1) => {
+  const goTo = (index: number) => {
     const el = trackRef.current;
     if (!el) return;
-    const amount = el.clientWidth * 0.9 * direction;
-    el.scrollBy({ left: amount, behavior: "smooth" });
+    const slide = el.querySelector<HTMLElement>(".gallery-carousel-slide");
+    if (!slide) return;
+    const gap = Number.parseFloat(getComputedStyle(el).gap || "0") || 0;
+    const slideWidth = slide.offsetWidth + gap;
+    const next = Math.min(Math.max(0, index), pageCount - 1);
+    el.scrollTo({ left: next * slideWidth, behavior: "smooth" });
   };
+
+  const canPrev = page > 0;
+  const canNext = page < pageCount - 1;
 
   return (
     <div className={cn("gallery-carousel", className)}>
-      <div
-        ref={trackRef}
-        className="gallery-carousel-track"
-        tabIndex={0}
-        role="region"
-        aria-label="Campus gallery"
-        onKeyDown={(e) => {
-          if (e.key === "ArrowLeft") scrollByPage(-1);
-          if (e.key === "ArrowRight") scrollByPage(1);
-        }}
-      >
-        {images.map((image, i) => (
-          <figure key={`${image.src}-${i}`} className="gallery-carousel-slide">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 85vw, 33vw"
-            />
-          </figure>
-        ))}
-      </div>
-
-      <div className="gallery-carousel-controls">
+      <div className="gallery-carousel-viewport">
         <button
           type="button"
-          className="gallery-carousel-btn"
+          className="gallery-carousel-arrow gallery-carousel-arrow--prev"
           aria-label="Previous images"
           disabled={!canPrev}
-          onClick={() => scrollByPage(-1)}
+          onClick={() => goTo(page - 1)}
         >
-          <ChevronLeft className="h-5 w-5" aria-hidden />
+          <ChevronLeft aria-hidden />
         </button>
+
+        <div
+          ref={trackRef}
+          className="gallery-carousel-track"
+          tabIndex={0}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Campus gallery"
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft") goTo(page - 1);
+            if (e.key === "ArrowRight") goTo(page + 1);
+          }}
+        >
+          {images.map((image, i) => (
+            <figure
+              key={`${image.src}-${i}`}
+              className="gallery-carousel-slide"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${images.length}`}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 767px) 85vw, 33vw"
+              />
+            </figure>
+          ))}
+        </div>
+
         <button
           type="button"
-          className="gallery-carousel-btn"
+          className="gallery-carousel-arrow gallery-carousel-arrow--next"
           aria-label="Next images"
           disabled={!canNext}
-          onClick={() => scrollByPage(1)}
+          onClick={() => goTo(page + 1)}
         >
-          <ChevronRight className="h-5 w-5" aria-hidden />
+          <ChevronRight aria-hidden />
         </button>
       </div>
+
+      {pageCount > 1 && (
+        <div className="gallery-carousel-dots" role="tablist" aria-label="Gallery pages">
+          {Array.from({ length: pageCount }, (_, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              aria-selected={i === page}
+              aria-label={`Go to slide ${i + 1}`}
+              className={cn(
+                "gallery-carousel-dot",
+                i === page && "gallery-carousel-dot--active",
+              )}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
