@@ -18,6 +18,8 @@ export { ProgramPanels } from "./ProgramPanels";
 export type { ProgramPanelData } from "./ProgramPanels";
 export { CampusBanner } from "./CampusBanner";
 export { ImageGrid } from "./ImageGrid";
+export type { GalleryImage } from "./ImageGrid";
+export { ImageCarousel } from "./ImageCarousel";
 export { StudentLifeCards } from "./StudentLifeCards";
 export type { StudentLifeCardData } from "./StudentLifeCards";
 export { ScrollToTop } from "./ScrollToTop";

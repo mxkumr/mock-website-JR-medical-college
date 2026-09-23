@@ -3,17 +3,19 @@
 import type { ProgramPanelData } from "@/components/site/ProgramPanels";
 import type { StatCardData } from "@/components/site/StatCard";
 import type { StudentLifeCardData } from "@/components/site/StudentLifeCards";
+import type { GalleryImage } from "@/components/site/ImageGrid";
 import { HOME, UNDER_CONSTRUCTION } from "@/data/routes";
 
 const U = "/uploads";
+const JR = "/images/JR";
 
 export const ASSETS = {
   headerLogo: "/images/jrmedical.png",
   heroBackground: "/images/hero.png",
   campusImage: "/images/campus_patient.png",
-  statGraduates: "/images/stat-graduates.png",
-  statDepartments: "/images/stat-departmetns.png",
-  statPatientCare: "/images/stat-patient-care.png",
+  statGraduates: `${JR}/students-lab-coats-group-study.jpg`,
+  statDepartments: `${JR}/lecture-hall-auditorium-session.jpg`,
+  statPatientCare: `${JR}/clinical-procedure-patient-exam.jpg`,
   shapePurple: `${U}/2020/12/shape-purple.svg`,
 } as const;
 
@@ -190,6 +192,85 @@ export const studentLifeSection = {
       body: "Hands-on training in labs and hospital settings to build real-world skills from the early years.",
     },
   ] satisfies StudentLifeCardData[],
+};
+
+export const gallerySection = {
+  title: "Campus Gallery",
+  cta: { label: "View All", href: UNDER_CONSTRUCTION },
+  images: [
+    {
+      src: `${JR}/campus-entrance-main-sign.jpg`,
+      alt: "JR Medical College and Hospital entrance sign",
+    },
+    {
+      src: `${JR}/campus-main-building-exterior.jpg`,
+      alt: "Main campus building exterior",
+    },
+    {
+      src: `${JR}/campus-entrance-portico.jpg`,
+      alt: "Campus entrance portico",
+    },
+    {
+      src: `${JR}/lecture-hall-auditorium-session.jpg`,
+      alt: "Students in the lecture hall auditorium",
+    },
+    {
+      src: `${JR}/classroom-students-at-desks.jpg`,
+      alt: "Students seated in a classroom",
+    },
+    {
+      src: `${JR}/students-lab-coats-group-study.jpg`,
+      alt: "Medical students studying around a digital anatomy table",
+    },
+    {
+      src: `${JR}/student-microscope-closeup.jpg`,
+      alt: "Student using a microscope in the laboratory",
+    },
+    {
+      src: `${JR}/students-skeleton-anatomy-lab.jpg`,
+      alt: "Students studying anatomy with a skeleton model",
+    },
+    {
+      src: `${JR}/students-working-at-lab-bench.jpg`,
+      alt: "Students working at a laboratory bench",
+    },
+    {
+      src: `${JR}/ct-scanner-front-view.jpg`,
+      alt: "CT scanner in the radiology suite",
+    },
+    {
+      src: `${JR}/operating-theatre-overview.jpg`,
+      alt: "Operating theatre with surgical table and lights",
+    },
+    {
+      src: `${JR}/clinical-procedure-patient-exam.jpg`,
+      alt: "Clinician performing a patient examination",
+    },
+    {
+      src: `${JR}/ophthalmology-slit-lamp-exam.jpg`,
+      alt: "Ophthalmology slit-lamp examination",
+    },
+    {
+      src: `${JR}/hospital-inpatient-ward-beds.jpg`,
+      alt: "Hospital inpatient ward",
+    },
+    {
+      src: `${JR}/library-bookshelves-interior.jpg`,
+      alt: "College library bookshelves",
+    },
+    {
+      src: `${JR}/student-studying-at-library-desk.jpg`,
+      alt: "Student studying at a library desk",
+    },
+    {
+      src: `${JR}/radio-diagnosis-entrance.jpg`,
+      alt: "Department of Radio-Diagnosis entrance",
+    },
+    {
+      src: `${JR}/hostel-twin-room.jpg`,
+      alt: "Hostel twin sharing room",
+    },
+  ] satisfies GalleryImage[],
 };
 
 export const newsSection = {

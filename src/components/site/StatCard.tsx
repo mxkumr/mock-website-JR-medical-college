@@ -15,13 +15,13 @@ const CARD_THEMES = [
     align: "items-end text-right",
   },
   {
-    valueClass: "text-accent-6",
-    labelClass: "text-accent-6",
+    valueClass: "text-white",
+    labelClass: "text-white",
     align: "items-start text-left",
   },
   {
-    valueClass: "text-accent-6",
-    labelClass: "text-accent-6",
+    valueClass: "text-white",
+    labelClass: "text-white",
     align: "items-start text-left",
   },
 ] as const;
@@ -43,6 +43,10 @@ export function StatCard({ stat, index }: StatCardProps) {
         className="object-cover object-center"
         sizes="(max-width: 640px) 100vw, 33vw"
         priority={index === 0}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/55 via-black/15 to-transparent"
         aria-hidden
       />
 

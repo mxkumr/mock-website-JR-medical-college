@@ -5,5 +5,6 @@ export { ProgramsSection } from "./ProgramsSection";
 export { ApplySection } from "./ApplySection";
 export { LeadersSection } from "./LeadersSection";
 export { StudentLifeSection } from "./StudentLifeSection";
+export { GallerySection } from "./GallerySection";
 export { NewsSection } from "./NewsSection";
 export { FormCtaSection } from "./FormCtaSection";

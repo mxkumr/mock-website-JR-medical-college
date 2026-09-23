@@ -7,4 +7,5 @@ export const HOME = {
   contact: "/#contact",
   departments: "/#departments",
   services: "/#services",
+  gallery: "/#gallery",
 } as const;

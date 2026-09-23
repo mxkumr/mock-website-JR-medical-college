@@ -1607,6 +1607,76 @@ a.programs-more-link:hover {
   }
 }
 
+/* Gallery carousel — same 3-up rhythm as Estudiar image grid */
+.gallery-carousel {
+  position: relative;
+}
+
+.gallery-carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+
+.gallery-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-carousel-slide {
+  position: relative;
+  flex: 0 0 85%;
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+  border-radius: var(--card-radius);
+}
+
+@media (min-width: 768px) {
+  .gallery-carousel-track {
+    gap: 1.5rem;
+  }
+
+  .gallery-carousel-slide {
+    flex-basis: calc((100% - 3rem) / 3);
+  }
+}
+
+.gallery-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--accent-6);
+  background: var(--accent-5);
+  color: var(--accent-6);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.gallery-carousel-btn:hover:not(:disabled) {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: var(--accent-6);
+}
+
+.gallery-carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 .news-card {
   height: 100%;
   padding: clamp(2rem, 5vh, 3.75rem) clamp(1.25rem, 3vw, 2.5rem)

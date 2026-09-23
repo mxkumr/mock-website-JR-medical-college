@@ -13,6 +13,7 @@ import {
   ApplySection,
   LeadersSection,
   StudentLifeSection,
+  GallerySection,
   NewsSection,
   FormCtaSection,
 } from "@/components/site/sections";
@@ -33,6 +34,7 @@ export function HomePage() {
           <ApplySection />
           <LeadersSection />
           <StudentLifeSection />
+          <GallerySection />
           <NewsSection />
           <FormCtaSection />
         </main>
